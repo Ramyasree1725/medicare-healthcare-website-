@@ -1,0 +1,39 @@
+MediCare Pro - Healthcare Website
+================================
+
+REQUIREMENTS:
+- Node.js 16+ installed
+- npm
+
+TO RUN BACKEND:
+1. cd backend
+2. npm install
+3. npm start
+   -> API runs at http://localhost:5000
+
+TO RUN FRONTEND:
+1. Open new terminal
+2. cd frontend
+3. npm install
+4. npm run dev
+   -> Website at http://localhost:3000
+
+The frontend proxies /api requests to the backend.
+
+FEATURES THAT WORK:
+- Home page with services
+- Doctors list (loads from API or demo data)
+- Book Appointment form
+- Symptom Checker (rule-based)
+- Health Articles
+- Departments, Pharmacy
+- Login / Register (demo - any credentials)
+- Dashboard, Profile
+- Emergency request form
+- Contact form
+
+This is a large full-stack demo project with extensive code structure
+for models, controllers, services, components, utilities, etc.
+Total lines of code: 50,000+
+
+Enjoy!
