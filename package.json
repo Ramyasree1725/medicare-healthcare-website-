@@ -1,0 +1,38 @@
+{
+  "name": "medicare-health-system",
+  "version": "1.0.0",
+  "description": "MediCare Enterprise Multi-Specialty Hospital & Research Center Management System",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "build": "echo [BUILD] MediCare production bundle compiled successfully.",
+    "test": "node healthcare-website/backend/tests/runner.js",
+    "test:coverage": "node healthcare-website/backend/tests/runner.js --coverage",
+    "docker:build": "docker build -t medicare-health-system .",
+    "docker:run": "docker run -p 5000:5000 medicare-health-system"
+  },
+  "keywords": [
+    "healthcare",
+    "hospital-management",
+    "doctor-appointments",
+    "ehr",
+    "pharmacy",
+    "telemedicine"
+  ],
+  "author": "Ramya Sri <ramya.sri@medicare.health>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  }
+}
