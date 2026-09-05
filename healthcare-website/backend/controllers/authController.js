@@ -4,6 +4,7 @@
 const { v4: uuidv4 } = require('uuid');
 
 // Simple in-memory users for demo
+if (!global.db) global.db = {};
 if (!global.db.users) global.db.users = [];
 
 exports.login = async (req, res) => {

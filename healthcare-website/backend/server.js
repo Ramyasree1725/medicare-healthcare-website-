@@ -1,7 +1,48 @@
+const crypto = require('crypto');
+const Module = require('module');
+const originalRequire = Module.prototype.require;
+
+// Built-in fail-proof UUID generator
+const uuidMock = {
+  v4: () => (typeof crypto.randomUUID === 'function' ? crypto.randomUUID() : 'id-' + Math.random().toString(36).substring(2) + Date.now().toString(36)),
+  default: {
+    v4: () => (typeof crypto.randomUUID === 'function' ? crypto.randomUUID() : 'id-' + Math.random().toString(36).substring(2) + Date.now().toString(36))
+  }
+};
+
+Module.prototype.require = function(requestPath) {
+  if (requestPath === 'uuid') {
+    return uuidMock;
+  }
+  return originalRequire.apply(this, arguments);
+};
+
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require('path');
+
+// In-memory data store for demo (initialized before routes)
+global.db = {
+  users: [],
+  doctors: [],
+  patients: [],
+  appointments: [],
+  articles: [],
+  symptoms: [],
+  departments: [],
+  labs: [],
+  pharmacy: [],
+  insurance: [],
+  bills: [],
+  notifications: [],
+  reports: [],
+  feedback: [],
+  emergencies: []
+};
+
+// Seed initial data
+require('./seed/seedData')();
 
 // Import routes
 const authRoutes = require('./routes/auth');
@@ -28,28 +69,6 @@ app.use(cors());
 app.use(bodyParser.json({ limit: '10mb' }));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// In-memory data store for demo (no real DB needed)
-global.db = {
-  users: [],
-  doctors: [],
-  patients: [],
-  appointments: [],
-  articles: [],
-  symptoms: [],
-  departments: [],
-  labs: [],
-  pharmacy: [],
-  insurance: [],
-  bills: [],
-  notifications: [],
-  reports: [],
-  feedback: [],
-  emergencies: []
-};
-
-// Seed some initial data
-require('./seed/seedData')();
-
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/doctors', doctorRoutes);
@@ -72,18 +91,15 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', message: 'MediCare API is running', timestamp: new Date().toISOString() });
 });
 
-// Root
-app.get('/', (req, res) => {
-  res.json({ 
-    name: 'MediCare Pro API',
-    version: '1.0.0',
-    endpoints: [
-      '/api/auth', '/api/doctors', '/api/patients', '/api/appointments',
-      '/api/articles', '/api/symptoms', '/api/departments', '/api/labs',
-      '/api/pharmacy', '/api/insurance', '/api/billing', '/api/notifications',
-      '/api/reports', '/api/feedback', '/api/emergency'
-    ]
-  });
+// Serve static files from public directory
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Root & SPA routing
+app.get('*', (req, res, next) => {
+  if (req.path.startsWith('/api')) {
+    return next();
+  }
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 // Error handler

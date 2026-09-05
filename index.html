@@ -1,0 +1,3013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MediCare Health System — Multi-Specialty Hospital & Research Center</title>
+  <style>
+    /* ==========================================================================
+       ENTERPRISE MEDICAL DESIGN SYSTEM — 100% FULL DISPLAY COVERAGE (Zero Dependency)
+       ========================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    :root {
+      --navy-950: #060d1b;
+      --navy-900: #0b1528;
+      --navy-800: #101f3c;
+      --navy-700: #1a2f55;
+      --navy-600: #254275;
+      --blue-600: #0284c7;
+      --blue-500: #0ea5e9;
+      --blue-50: #f0f9ff;
+      --blue-100: #e0f2fe;
+      --emerald-600: #059669;
+      --emerald-500: #10b981;
+      --emerald-50: #ecfdf5;
+      --rose-600: #e11d48;
+      --rose-700: #be123c;
+      --rose-50: #fff1f2;
+      --slate-50: #f8fafc;
+      --slate-100: #f1f5f9;
+      --slate-200: #e2e8f0;
+      --slate-300: #cbd5e1;
+      --slate-400: #94a3b8;
+      --slate-500: #64748b;
+      --slate-600: #475569;
+      --slate-700: #334155;
+      --slate-800: #1e293b;
+      --slate-900: #0f172a;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+      --radius-full: 9999px;
+      --shadow-xs: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
+      --shadow-sm: 0 2px 4px 0 rgba(15, 23, 42, 0.06);
+      --shadow-md: 0 6px 16px -2px rgba(15, 23, 42, 0.08), 0 2px 6px -2px rgba(15, 23, 42, 0.04);
+      --shadow-lg: 0 16px 32px -4px rgba(15, 23, 42, 0.12), 0 6px 12px -4px rgba(15, 23, 42, 0.06);
+      --shadow-xl: 0 25px 50px -12px rgba(15, 23, 42, 0.25);
+      --font-sans: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: #f3f6fa;
+      color: var(--slate-900);
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* 100% Full Edge-to-Edge Display Coverage Container */
+    .viewport-container {
+      width: 100%;
+      max-width: 1920px;
+      margin: 0 auto;
+      padding: 0 44px;
+    }
+
+    @media (max-width: 1024px) {
+      .viewport-container { padding: 0 20px; }
+    }
+
+    /* ==========================================================================
+       1. TOP EXECUTIVE ANNOUNCEMENT STRIP
+       ========================================================================== */
+    .executive-top-strip {
+      background: var(--navy-950);
+      color: #94a3b8;
+      font-size: 13px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .top-strip-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .live-status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #34d399;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.2px;
+    }
+    .pulse-beacon {
+      position: relative;
+      width: 10px;
+      height: 10px;
+      background: #10b981;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #10b981;
+    }
+    .pulse-beacon::after {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 2px solid #34d399;
+      animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+    }
+    @keyframes pulse-ring {
+      0% { transform: scale(0.8); opacity: 1; }
+      100% { transform: scale(2.2); opacity: 0; }
+    }
+
+    .top-quick-contacts {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-size: 13px;
+    }
+    .top-quick-contacts span strong {
+      color: #ffffff;
+      font-family: monospace;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+    }
+
+    /* ==========================================================================
+       2. MASTER STICKY HEADER (FROZEN AT TOP ON SCROLL)
+       ========================================================================== */
+    .master-sticky-wrapper {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #ffffff;
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.08);
+      border-bottom: 2px solid var(--slate-200);
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+      gap: 20px;
+    }
+    .brand-identity {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .brand-shield-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, var(--navy-900) 0%, var(--navy-700) 100%);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(11, 21, 40, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+    .brand-shield-icon::after {
+      content: '';
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      width: 28px;
+      height: 28px;
+      background: rgba(14, 165, 233, 0.4);
+      border-radius: 50%;
+    }
+    .brand-title-group h1 {
+      font-size: 23px;
+      font-weight: 900;
+      color: var(--navy-950);
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .brand-badge {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      background: #e0f2fe;
+      color: #0369a1;
+      padding: 3px 9px;
+      border-radius: 6px;
+      border: 1px solid #bae6fd;
+    }
+    .brand-title-group p {
+      font-size: 12px;
+      color: var(--slate-500);
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    /* OMNI-SEARCH BAR */
+    .header-omni-search {
+      flex: 1;
+      max-width: 520px;
+      position: relative;
+    }
+    .search-input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    .search-input-wrapper input {
+      width: 100%;
+      padding: 12px 40px 12px 44px;
+      font-size: 14px;
+      font-weight: 600;
+      background: var(--slate-50);
+      border: 1.5px solid var(--slate-300);
+      border-radius: var(--radius-full);
+      color: var(--navy-950);
+      transition: all 0.2s;
+    }
+    .search-input-wrapper input:focus {
+      background: #ffffff;
+      border-color: var(--blue-600);
+      outline: none;
+      box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.15);
+    }
+    .search-input-wrapper .search-leading-icon {
+      position: absolute;
+      left: 15px;
+      color: var(--slate-400);
+      width: 18px;
+      height: 18px;
+      pointer-events: none;
+    }
+    .search-input-wrapper .search-clear-btn {
+      position: absolute;
+      right: 12px;
+      background: var(--slate-200);
+      border: none;
+      color: var(--slate-600);
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .search-input-wrapper .search-clear-btn:hover {
+      background: var(--slate-300);
+      color: var(--navy-950);
+    }
+
+    /* Floating Search Popover */
+    .search-results-dropdown {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      right: 0;
+      background: #ffffff;
+      border: 1.5px solid var(--slate-200);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      z-index: 1200;
+      max-height: 480px;
+      overflow-y: auto;
+      display: none;
+    }
+    .search-results-dropdown.active {
+      display: block;
+    }
+    .search-dropdown-header {
+      padding: 12px 18px;
+      background: var(--slate-50);
+      border-bottom: 1px solid var(--slate-200);
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--slate-500);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .search-result-item {
+      padding: 12px 18px;
+      border-bottom: 1px solid var(--slate-100);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .search-result-item:hover { background: #f0f7ff; }
+    .search-result-item:last-child { border-bottom: none; }
+
+    /* Header Controls */
+    .header-right-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+    .btn-emergency-pill {
+      background: var(--rose-600);
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 13px;
+      padding: 10px 18px;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(225, 29, 72, 0.25);
+      transition: all 0.2s;
+    }
+    .btn-emergency-pill:hover { background: var(--rose-700); transform: translateY(-1px); }
+    .btn-book-opd {
+      background: var(--navy-950);
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 13px;
+      padding: 10px 20px;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(11, 21, 40, 0.15);
+      transition: all 0.2s;
+    }
+    .btn-book-opd:hover { background: var(--navy-800); transform: translateY(-1px); }
+    .cart-pill-btn {
+      position: relative;
+      background: var(--slate-100);
+      border: 1px solid var(--slate-200);
+      color: var(--navy-950);
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .cart-pill-btn:hover { background: var(--slate-200); }
+    .cart-pill-count {
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      background: var(--blue-600);
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 900;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #ffffff;
+    }
+
+    /* Auth Buttons Group */
+    .auth-nav-btn-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-auth-signin {
+      background: #ffffff;
+      border: 1.5px solid var(--slate-300);
+      color: var(--navy-950);
+      font-size: 13px;
+      font-weight: 800;
+      padding: 9px 16px;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      transition: all 0.15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-auth-signin:hover {
+      background: var(--slate-100);
+      border-color: var(--slate-400);
+    }
+    .btn-auth-register {
+      background: var(--blue-600);
+      border: 1.5px solid var(--blue-600);
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 800;
+      padding: 9px 18px;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      transition: all 0.15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 2px 6px rgba(2, 132, 199, 0.25);
+    }
+    .btn-auth-register:hover {
+      background: #0369a1;
+      border-color: #0369a1;
+    }
+
+    /* Active User Profile Pill */
+    .user-account-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #ffffff;
+      border: 1.5px solid var(--slate-300);
+      border-radius: var(--radius-full);
+      padding: 6px 16px 6px 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .user-account-btn:hover {
+      background: var(--slate-50);
+      border-color: var(--slate-400);
+    }
+    .user-avatar-circle {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--navy-950);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 13px;
+    }
+    .user-avatar-circle.doc-circle {
+      background: #0284c7;
+    }
+
+    /* ==========================================================================
+       3. NAVIGATION RIBBON (SHARP, PROFESSIONAL, ZERO ARTIFACTS)
+       ========================================================================== */
+    .nav-ribbon {
+      background: #ffffff;
+      border-top: 1px solid var(--slate-100);
+      position: relative;
+    }
+    .nav-tabs-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding: 4px 0;
+    }
+    .nav-tabs-wrapper::-webkit-scrollbar { display: none; }
+
+    .nav-tab-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: var(--radius-md);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--slate-600);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.15s ease-in-out;
+      position: relative;
+      user-select: none;
+    }
+    .nav-tab-item:hover {
+      color: var(--navy-950);
+      background: var(--slate-100);
+    }
+    .nav-tab-item.active {
+      color: var(--navy-950);
+      background: #e2e8f0;
+      font-weight: 800;
+    }
+    .nav-tab-item.active::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 14px;
+      right: 14px;
+      height: 3px;
+      background: var(--blue-600);
+      border-radius: 2px;
+    }
+    .nav-tab-item .tab-icon {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      stroke-width: 2.1;
+      display: block;
+    }
+    .nav-tab-item.emergency-tab { color: var(--rose-600); }
+    .nav-tab-item.emergency-tab:hover { background: var(--rose-50); }
+    .nav-tab-item.emergency-tab.active { background: var(--rose-50); color: var(--rose-700); }
+    .nav-tab-item.emergency-tab.active::after { background: var(--rose-600); }
+
+    /* Clean Department Mega Dropdown Trigger */
+    .dept-dropdown-wrapper {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+    }
+    .dept-trigger-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .dept-chevron-icon {
+      width: 14px;
+      height: 14px;
+      transition: transform 0.2s ease;
+      color: var(--slate-500);
+    }
+    .dept-dropdown-wrapper:hover .dept-chevron-icon {
+      transform: rotate(180deg);
+      color: var(--navy-950);
+    }
+
+    /* Mega Popup Dropdown Menu */
+    .dept-mega-popup {
+      position: absolute;
+      top: calc(100% + 6px);
+      left: 0;
+      width: 580px;
+      background: #ffffff;
+      border: 1.5px solid var(--slate-300);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 16px 36px -6px rgba(15, 23, 42, 0.18), 0 4px 12px rgba(15, 23, 42, 0.08);
+      padding: 16px;
+      display: none;
+      z-index: 1500;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    .dept-dropdown-wrapper:hover .dept-mega-popup,
+    .dept-mega-popup.show {
+      display: grid;
+    }
+    .dept-pill-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      border-radius: var(--radius-md);
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .dept-pill-card:hover {
+      background: #f0f7ff;
+      border-color: #bae6fd;
+      transform: translateY(-1px);
+    }
+    .dept-pill-card .dept-icon-box {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: #ffffff;
+      border: 1px solid var(--slate-200);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--blue-600);
+      flex-shrink: 0;
+    }
+
+    /* ==========================================================================
+       4. FULL SCREEN CONTENT CANVAS (100% Display Coverage)
+       ========================================================================== */
+    main.main-viewport {
+      flex: 1;
+      padding: 36px 0 60px 0;
+    }
+
+    .card-panel {
+      background: #ffffff;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-xl);
+      padding: 38px;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.2s, border-color 0.2s;
+    }
+    .card-panel:hover {
+      box-shadow: var(--shadow-md);
+      border-color: #cbd5e1;
+    }
+
+    .page-hero-title {
+      font-size: 34px;
+      font-weight: 900;
+      color: var(--navy-950);
+      letter-spacing: -0.8px;
+      line-height: 1.15;
+    }
+    .page-hero-subtitle {
+      font-size: 15px;
+      color: var(--slate-500);
+      margin-top: 6px;
+      line-height: 1.6;
+    }
+
+    /* Grids */
+    .grid-4-col { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
+    .grid-3-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .grid-2-col { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+    .grid-form-split { display: grid; grid-template-columns: 2.2fr 1fr; gap: 34px; align-items: start; }
+
+    @media (max-width: 1400px) {
+      .grid-4-col { grid-template-columns: repeat(2, 1fr); }
+      .grid-3-col { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 1024px) {
+      .grid-form-split { grid-template-columns: 1fr; }
+      .grid-2-col { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .grid-4-col { grid-template-columns: 1fr; }
+      .grid-3-col { grid-template-columns: 1fr; }
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px 22px;
+      font-size: 15px;
+      font-weight: 700;
+      border-radius: var(--radius-md);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      text-decoration: none;
+    }
+    .btn-solid-dark { background: var(--navy-950); color: #ffffff; }
+    .btn-solid-dark:hover { background: var(--navy-800); transform: translateY(-1px); }
+    .btn-solid-blue { background: var(--blue-600); color: #ffffff; }
+    .btn-solid-blue:hover { background: #0369a1; transform: translateY(-1px); }
+    .btn-solid-rose { background: var(--rose-600); color: #ffffff; }
+    .btn-solid-rose:hover { background: var(--rose-700); transform: translateY(-1px); }
+    .btn-subtle { background: #ffffff; border-color: var(--slate-300); color: var(--navy-950); }
+    .btn-subtle:hover { background: var(--slate-100); border-color: var(--slate-400); }
+    .btn-sm { padding: 9px 16px; font-size: 13px; border-radius: var(--radius-sm); }
+
+    /* Badges */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      border: 1px solid transparent;
+    }
+    .badge-blue { background: #e0f2fe; color: #0369a1; border-color: #bae6fd; }
+    .badge-emerald { background: #dcfce7; color: #15803d; border-color: #bbf7d0; }
+    .badge-rose { background: #ffe4e6; color: #be123c; border-color: #fecdd3; }
+    .badge-amber { background: #fef3c7; color: #b45309; border-color: #fde68a; }
+    .badge-slate { background: #f1f5f9; color: #475569; border-color: #e2e8f0; }
+
+    /* Form Fields */
+    .field-group { margin-bottom: 22px; }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    @media (max-width: 640px) { .field-row { grid-template-columns: 1fr; } }
+    label.field-label {
+      display: block;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--slate-600);
+      margin-bottom: 8px;
+    }
+    input[type="text"], input[type="tel"], input[type="email"], input[type="password"], input[type="number"], input[type="date"], select, textarea {
+      width: 100%;
+      padding: 13px 18px;
+      font-size: 15px;
+      font-family: inherit;
+      color: var(--navy-950);
+      background: #ffffff;
+      border: 1.5px solid var(--slate-300);
+      border-radius: var(--radius-md);
+      transition: all 0.2s;
+    }
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--blue-600);
+      box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.15);
+    }
+
+    /* Slots Selection */
+    .slot-matrix { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 12px; margin-top: 10px; }
+    .slot-pill {
+      padding: 12px 6px;
+      font-size: 13px;
+      font-weight: 800;
+      background: #ffffff;
+      border: 1.5px solid var(--slate-200);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.15s;
+    }
+    .slot-pill:hover { background: var(--slate-100); border-color: var(--slate-300); }
+    .slot-pill.active {
+      background: var(--navy-950);
+      color: #ffffff;
+      border-color: var(--navy-950);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Printable Slip */
+    .token-receipt-card {
+      background: linear-gradient(135deg, var(--navy-950) 0%, var(--navy-800) 100%);
+      color: #ffffff;
+      padding: 36px;
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 32px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .token-huge-number {
+      font-size: 44px;
+      font-weight: 900;
+      font-family: monospace;
+      color: #38bdf8;
+      letter-spacing: -1px;
+      margin: 10px 0;
+    }
+
+    /* Data Tables */
+    table.custom-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 14px; }
+    table.custom-table th { background: var(--slate-50); color: var(--slate-600); font-weight: 800; padding: 16px 20px; border-top: 1px solid var(--slate-200); border-bottom: 1px solid var(--slate-200); }
+    table.custom-table td { padding: 18px 20px; border-bottom: 1px solid var(--slate-100); color: var(--slate-800); }
+    table.custom-table tr:hover td { background: #fafcff; }
+
+    .icon {
+      width: 20px;
+      height: 20px;
+      display: inline-block;
+      vertical-align: middle;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .icon-lg { width: 28px; height: 28px; }
+
+    @media print {
+      body * { visibility: hidden; }
+      #printable-slip, #printable-slip * { visibility: visible; }
+      #printable-slip { position: fixed; left: 0; top: 0; width: 100%; margin: 0; padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. TOP EXECUTIVE ANNOUNCEMENT STRIP -->
+  <div class="executive-top-strip">
+    <div class="viewport-container top-strip-inner">
+      <div class="live-status-pill">
+        <span class="pulse-beacon"></span>
+        <span>MediCare Central Clinical Hospital Network Online (OPD, Cath Lab, Dialysis & Trauma)</span>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 28px; flex-wrap: wrap;">
+        <div class="top-quick-contacts">
+          <span>Casualty Resuscitation: <strong>040-2345-6789</strong></span>
+          <span style="color: #475569;">|</span>
+          <span style="color: #fca5a5;">National Ambulance: <strong style="color: #f87171;">108</strong></span>
+        </div>
+
+        <div id="top-auth-status-box">
+          <!-- Injected via JavaScript -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. MASTER STICKY HEADER (FROZEN AT TOP ON SCROLL) -->
+  <div class="master-sticky-wrapper">
+    <header class="master-header">
+      <div class="viewport-container">
+        <div class="brand-row">
+          <!-- Logo -->
+          <div class="brand-identity" onclick="navigate('home')">
+            <div class="brand-shield-icon">
+              <svg style="width: 30px; height: 30px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <line x1="12" y1="8" x2="12" y2="14"/>
+                <line x1="9" y1="11" x2="15" y2="11"/>
+              </svg>
+            </div>
+            <div class="brand-title-group">
+              <h1>MediCare <span class="brand-badge">Hospital System</span></h1>
+              <p>Integrated Tertiary Care, Specialist Consultations & Diagnostics</p>
+            </div>
+          </div>
+
+          <!-- 🔍 HIGH-POWERED REAL-TIME SEARCH BAR -->
+          <div class="header-omni-search" id="omni-search-container">
+            <div class="search-input-wrapper">
+              <svg class="search-leading-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              </svg>
+              <input
+                type="text"
+                id="global-header-search"
+                placeholder="Search specialist doctors, lab tests, medicines, or departments..."
+                autocomplete="off"
+                oninput="handleOmniSearchInput(this.value)"
+                onfocus="handleOmniSearchFocus()"
+                onkeydown="handleOmniSearchKeydown(event)"
+              >
+              <button class="search-clear-btn" id="search-clear-btn" onclick="clearOmniSearch()" title="Clear Search">✕</button>
+            </div>
+
+            <!-- Real-Time Floating Search Results Dropdown -->
+            <div class="search-results-dropdown" id="search-dropdown-menu"></div>
+          </div>
+
+          <!-- Action Controls -->
+          <div class="header-right-controls">
+            <button class="btn-emergency-pill" onclick="navigate('emergency')">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M10 10h4"/><path d="M12 8v4"/><rect width="16" height="11" x="1" y="8" rx="2"/><path d="M17 8h2.5a2 2 0 0 1 1.6.8L23 12v7h-2"/><circle cx="7" cy="19" r="2"/><circle cx="17" cy="19" r="2"/></svg>
+              <span>Emergency 108</span>
+            </button>
+
+            <button class="btn-book-opd" onclick="openBooking()">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/><line x1="12" x2="12" y1="14" y2="18"/><line x1="10" x2="14" y1="16" y2="16"/></svg>
+              <span>Schedule OPD Visit</span>
+            </button>
+
+            <button class="cart-pill-btn" onclick="navigate('pharmacy')" title="Dispensary Cart">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><line x1="3" x2="21" y1="6" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+              <span class="cart-pill-count" id="header-cart-badge">0</span>
+            </button>
+
+            <!-- Working Sign In & Register Buttons / Account Pill -->
+            <div id="header-user-account-wrapper">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. NAVIGATION RIBBON (SHARP, PROFESSIONAL, NO STRIPES / STRAY DOTS) -->
+      <div class="nav-ribbon">
+        <div class="viewport-container">
+          <nav class="nav-tabs-wrapper">
+            <!-- 1. Hospital Overview -->
+            <button class="nav-tab-item active" data-tab="home" onclick="navigate('home')">
+              <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              <span>Hospital Overview</span>
+            </button>
+
+            <!-- 2. Clean All Departments Mega-Menu Trigger -->
+            <div class="dept-dropdown-wrapper">
+              <button class="nav-tab-item dept-trigger-btn" data-tab="departments" onclick="navigate('departments')">
+                <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <rect x="3" y="3" width="7" height="7" rx="1.5"/>
+                  <rect x="14" y="3" width="7" height="7" rx="1.5"/>
+                  <rect x="14" y="14" width="7" height="7" rx="1.5"/>
+                  <rect x="3" y="14" width="7" height="7" rx="1.5"/>
+                </svg>
+                <span>All Departments</span>
+                <svg class="dept-chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m6 9 6 6 6-6"/>
+                </svg>
+              </button>
+
+              <!-- Mega Popup with All 8 Departments and Clean Dedicated Icons -->
+              <div class="dept-mega-popup" id="dept-mega-menu">
+                <div class="dept-pill-card" onclick="filterByDept('Cardiology')">
+                  <div class="dept-icon-box" style="color: #e11d48;">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                  </div>
+                  <div>
+                    <strong style="font-size: 14px; color: var(--navy-950);">Cardiology</strong>
+                    <p style="font-size: 12px; color: var(--slate-500);">Heart, Cath Lab & ECG</p>
+                  </div>
+                </div>
+
+                <div class="dept-pill-card" onclick="filterByDept('Pediatrics')">
+                  <div class="dept-icon-box" style="color: #0284c7;">
+                    <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg>
+                  </div>
+                  <div>
+                    <strong style="font-size: 14px; color: var(--navy-950);">Pediatrics</strong>
+                    <p style="font-size: 12px; color: var(--slate-500);">Child Care & NICU</p>
+                  </div>
+                </div>
+
+                <div class="dept-pill-card" onclick="filterByDept('Orthopedics')">
+                  <div class="dept-icon-box" style="color: #059669;">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="m17 7-5 5-5-5"/><path d="m17 13-5 5-5-5"/><path d="M12 2v20"/></svg>
+                  </div>
+                  <div>
+                    <strong style="font-size: 14px; color: var(--navy-950);">Orthopedics</strong>
+                    <p style="font-size: 12px; color: var(--slate-500);">Joint Replacement & Spine</p>
+                  </div>
+                </div>
+
+                <div class="dept-pill-card" onclick="filterByDept('Dermatology')">
+                  <div class="dept-icon-box" style="color: #d97706;">
+                    <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3"/><path d="M12 19v3"/><path d="M2 12h3"/><path d="M19 12h3"/></svg>
+                  </div>
+                  <div>
+                    <strong style="font-size: 14px; color: var(--navy-950);">Dermatology</strong>
+                    <p style="font-size: 12px; color: var(--slate-500);">Skin, Allergy & Hair</p>
+                  </div>
+                </div>
+
+                <div class="dept-pill-card" onclick="filterByDept('Neurology')">
+                  <div class="dept-icon-box" style="color: #7c3aed;">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M12 2a9 9 0 0 0-9 9c0 3.6 2.1 6.7 5.2 8.1.5.2.8.7.8 1.2v.7c0 .6.4 1 1 1h2c.6 0 1-.4 1-1v-.7c0-.5.3-1 .8-1.2A9.01 9.01 0 0 0 21 11a9 9 0 0 0-9-9Z"/></svg>
+                  </div>
+                  <div>
+                    <strong style="font-size: 14px; color: var(--navy-950);">Neurology</strong>
+                    <p style="font-size: 12px; color: var(--slate-500);">Brain, Stroke & Spine</p>
+                  </div>
+                </div>
+
+                <div class="dept-pill-card" onclick="filterByDept('Gynecology & Obstetrics')">
+                  <div class="dept-icon-box" style="color: #db2777;">
+                    <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="M12 15v7"/><path d="M9 19h6"/></svg>
+                  </div>
+                  <div>
+                    <strong style="font-size: 14px; color: var(--navy-950);">Gynecology & Obs</strong>
+                    <p style="font-size: 12px; color: var(--slate-500);">Maternity & Birthing Suites</p>
+                  </div>
+                </div>
+
+                <div class="dept-pill-card" onclick="filterByDept('General Medicine')">
+                  <div class="dept-icon-box" style="color: #0284c7;">
+                    <svg class="icon" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M12 8v8"/><path d="M8 12h8"/></svg>
+                  </div>
+                  <div>
+                    <strong style="font-size: 14px; color: var(--navy-950);">General Medicine</strong>
+                    <p style="font-size: 12px; color: var(--slate-500);">Fever, Diabetes & Adult Care</p>
+                  </div>
+                </div>
+
+                <div class="dept-pill-card" onclick="filterByDept('Pulmonology')">
+                  <div class="dept-icon-box" style="color: #0d9488;">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M12 3v13"/><path d="M7 11a5 5 0 0 0 5 5 5 5 0 0 0 5-5"/><path d="M4 14a8 8 0 0 0 16 0"/></svg>
+                  </div>
+                  <div>
+                    <strong style="font-size: 14px; color: var(--navy-950);">Pulmonology</strong>
+                    <p style="font-size: 12px; color: var(--slate-500);">Lungs, Asthma & Allergy</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3. Specialist Doctors -->
+            <button class="nav-tab-item" data-tab="doctors" onclick="navigate('doctors')">
+              <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M4.5 3v5a4.5 4.5 0 0 0 9 0V3"/>
+                <path d="M9 12.5v4a3.5 3.5 0 0 0 7 0v-2"/>
+                <circle cx="16" cy="14.5" r="2.5"/>
+              </svg>
+              <span>Specialist Doctors</span>
+            </button>
+
+            <!-- 4. Appointments -->
+            <button class="nav-tab-item" data-tab="appointments" onclick="navigate('appointments')">
+              <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/><path d="m9 16 2 2 4-4"/></svg>
+              <span>My Appointments & Tokens</span>
+            </button>
+
+            <!-- 5. Lab Diagnostics -->
+            <button class="nav-tab-item" data-tab="labs" onclick="navigate('labs')">
+              <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-10.127A2 2 0 0 1 14 9.527V2"/><line x1="8.5" x2="15.5" y1="2" y2="2"/><line x1="7" x2="17" y1="16" y2="16"/></svg>
+              <span>Lab Diagnostics</span>
+            </button>
+
+            <!-- 6. Pharmacy -->
+            <button class="nav-tab-item" data-tab="pharmacy" onclick="navigate('pharmacy')">
+              <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"/><line x1="8.5" x2="15.5" y1="8.5" y2="15.5"/></svg>
+              <span>Hospital Pharmacy</span>
+            </button>
+
+            <!-- 7. Triage -->
+            <button class="nav-tab-item" data-tab="triage" onclick="navigate('triage')">
+              <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/></svg>
+              <span>Symptom Triage</span>
+            </button>
+
+            <!-- 8. Records -->
+            <button class="nav-tab-item" data-tab="records" onclick="navigate('records')">
+              <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              <span>Medical EHR & Vitals</span>
+            </button>
+
+            <!-- 9. Doctor Station Tab -->
+            <button class="nav-tab-item" id="nav-doc-station-btn" data-tab="doc-station" onclick="navigate('doc-station')">
+              <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M12 8v8"/><path d="M8 12h8"/></svg>
+              <span>Doctor / Staff Station</span>
+            </button>
+
+            <!-- 10. Sign In & Register Navigation Tab Item -->
+            <button class="nav-tab-item" data-tab="login" onclick="navigate('login')" style="margin-left: auto; color: var(--blue-600); font-weight: 800;">
+              <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <span>Sign In / Register</span>
+            </button>
+
+            <!-- 11. Emergency -->
+            <button class="nav-tab-item emergency-tab" data-tab="emergency" onclick="navigate('emergency')">
+              <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M10 10h4"/><path d="M12 8v4"/><rect width="16" height="11" x="1" y="8" rx="2"/><circle cx="7" cy="19" r="2"/><circle cx="17" cy="19" r="2"/></svg>
+              <span>24/7 Emergency (108)</span>
+            </button>
+          </nav>
+        </div>
+      </div>
+    </header>
+  </div>
+
+  <!-- 4. DYNAMIC VIEWPORT (100% FULL-WIDTH DISPLAY) -->
+  <main class="main-viewport">
+    <div class="viewport-container" id="app-dynamic-view">
+      <!-- Injected by JavaScript Engine -->
+    </div>
+  </main>
+
+  <!-- 5. FOOTER -->
+  <footer style="background: #ffffff; border-top: 1px solid var(--slate-200); padding: 48px 0 28px 0; margin-top: auto; font-size: 13px; color: var(--slate-500);">
+    <div class="viewport-container">
+      <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 40px; margin-bottom: 40px;">
+        <div>
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+            <div style="width: 38px; height: 38px; border-radius: 8px; background: var(--navy-950); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 16px;">MC</div>
+            <strong style="color: var(--navy-950); font-size: 17px; font-weight: 900;">MediCare Health System</strong>
+          </div>
+          <p style="line-height: 1.6; max-width: 460px; color: var(--slate-600);">
+            Integrated tertiary healthcare delivery system providing direct outpatient scheduling, accredited pathology laboratories, licensed clinical dispensary, and 24/7 trauma emergency care.
+          </p>
+        </div>
+
+        <div>
+          <h4 style="font-size: 13px; font-weight: 900; text-transform: uppercase; color: var(--navy-950); margin-bottom: 16px; letter-spacing: 0.5px;">Clinical Departments</h4>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px;">
+            <li><a onclick="filterByDept('Cardiology')" style="color: var(--slate-600); cursor: pointer; text-decoration: none; font-weight: 600;">🫀 Cardiology</a></li>
+            <li><a onclick="filterByDept('Pediatrics')" style="color: var(--slate-600); cursor: pointer; text-decoration: none; font-weight: 600;">👶 Pediatrics</a></li>
+            <li><a onclick="filterByDept('Orthopedics')" style="color: var(--slate-600); cursor: pointer; text-decoration: none; font-weight: 600;">🦴 Orthopedics</a></li>
+            <li><a onclick="filterByDept('Neurology')" style="color: var(--slate-600); cursor: pointer; text-decoration: none; font-weight: 600;">🧠 Neurology</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 style="font-size: 13px; font-weight: 900; text-transform: uppercase; color: var(--navy-950); margin-bottom: 16px; letter-spacing: 0.5px;">Emergency Hotlines</h4>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; font-weight: 600;">
+            <li style="color: var(--rose-600);">National Ambulance: <strong>108</strong></li>
+            <li>Casualty Resuscitation: <strong>040-2345-6789</strong></li>
+            <li>Trauma ICU: <strong>24/7 (365 Days)</strong></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 style="font-size: 13px; font-weight: 900; text-transform: uppercase; color: var(--navy-950); margin-bottom: 16px; letter-spacing: 0.5px;">Hospital Campus</h4>
+          <p style="line-height: 1.6; color: var(--slate-600); margin-bottom: 12px;">
+            Main Medical Campus, Road No. 12, Banjara Hills, Hyderabad, Telangana 500034
+          </p>
+          <span class="badge badge-emerald">NABH & NABL Certified Multi-Specialty Center</span>
+        </div>
+      </div>
+
+      <div style="border-top: 1px solid var(--slate-200); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-size: 12px;">
+        <p>© 2026 MediCare Health System. All clinical rights reserved.</p>
+        <p>Enterprise Healthcare Architecture.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       6. JAVASCRIPT APPLICATION ENGINE
+       ========================================================================== -->
+  <script>
+    // Real-Time Department Vector SVG Icon Resolver
+    function getDeptIconSVG(dept) {
+      switch(dept) {
+        case 'Cardiology':
+          return `<svg class="icon" viewBox="0 0 24 24" style="color: #e11d48;"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>`;
+        case 'Pediatrics':
+          return `<svg class="icon" viewBox="0 0 24 24" style="color: #0284c7;"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg>`;
+        case 'Orthopedics':
+          return `<svg class="icon" viewBox="0 0 24 24" style="color: #059669;"><path d="m17 7-5 5-5-5"/><path d="m17 13-5 5-5-5"/><path d="M12 2v20"/></svg>`;
+        case 'Dermatology':
+          return `<svg class="icon" viewBox="0 0 24 24" style="color: #d97706;"><circle cx="12" cy="12" r="4"/><path d="M12 2v3"/><path d="M12 19v3"/><path d="M2 12h3"/><path d="M19 12h3"/></svg>`;
+        case 'Neurology':
+          return `<svg class="icon" viewBox="0 0 24 24" style="color: #7c3aed;"><path d="M12 2a9 9 0 0 0-9 9c0 3.6 2.1 6.7 5.2 8.1.5.2.8.7.8 1.2v.7c0 .6.4 1 1 1h2c.6 0 1-.4 1-1v-.7c0-.5.3-1 .8-1.2A9.01 9.01 0 0 0 21 11a9 9 0 0 0-9-9Z"/></svg>`;
+        case 'Gynecology & Obstetrics':
+          return `<svg class="icon" viewBox="0 0 24 24" style="color: #db2777;"><circle cx="12" cy="9" r="6"/><path d="M12 15v7"/><path d="M9 19h6"/></svg>`;
+        case 'General Medicine':
+          return `<svg class="icon" viewBox="0 0 24 24" style="color: #0284c7;"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M12 8v8"/><path d="M8 12h8"/></svg>`;
+        case 'Pulmonology':
+          return `<svg class="icon" viewBox="0 0 24 24" style="color: #0d9488;"><path d="M12 3v13"/><path d="M7 11a5 5 0 0 0 5 5 5 5 0 0 0 5-5"/><path d="M4 14a8 8 0 0 0 16 0"/></svg>`;
+        default:
+          return `<svg class="icon" viewBox="0 0 24 24" style="color: #0284c7;"><path d="M4.5 3v5a4.5 4.5 0 0 0 9 0V3"/><path d="M9 12.5v4a3.5 3.5 0 0 0 7 0v-2"/><circle cx="16" cy="14.5" r="2.5"/></svg>`;
+      }
+    }
+
+    // 💊 REAL-TIME TABLET & CAPSULE VECTOR SVG RESOLVER
+    function getMedicineTabletIconSVG(category, form = '') {
+      const f = form.toLowerCase();
+      const c = category.toLowerCase();
+
+      if (f.includes('sachet') || f.includes('powder') || c.includes('first aid')) {
+        return `
+          <div style="width: 46px; height: 46px; border-radius: 12px; background: #fef3c7; border: 1.5px solid #fde68a; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #b45309; box-shadow: var(--shadow-xs);">
+            <svg class="icon" style="width: 22px; height: 22px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="5" y="3" width="14" height="18" rx="2"/>
+              <path d="M12 8v8"/>
+              <path d="M8 12h8"/>
+            </svg>
+          </div>
+        `;
+      }
+
+      if (f.includes('capsule') || c.includes('antibiotic') || c.includes('gastro')) {
+        return `
+          <div style="width: 46px; height: 46px; border-radius: 12px; background: #ecfdf5; border: 1.5px solid #a7f3d0; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #059669; box-shadow: var(--shadow-xs);">
+            <svg class="icon" style="width: 22px; height: 22px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"/>
+              <line x1="8.5" x2="15.5" y1="8.5" y2="15.5"/>
+            </svg>
+          </div>
+        `;
+      }
+
+      // Scored Clinical Medical Tablet Icon
+      return `
+        <div style="width: 46px; height: 46px; border-radius: 12px; background: #f0f9ff; border: 1.5px solid #bae6fd; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #0284c7; box-shadow: var(--shadow-xs);">
+          <svg class="icon" style="width: 24px; height: 24px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="9"/>
+            <line x1="6" y1="12" x2="18" y2="12"/>
+          </svg>
+        </div>
+      `;
+    }
+
+    const APP = {
+      view: 'home',
+      currentSession: {
+        isLoggedIn: true,
+        role: 'patient', // 'patient' or 'doctor'
+        user: {
+          id: 'PAT-90821',
+          name: 'Ramya Sri',
+          phone: '+91 9876543210',
+          email: 'ramya.sri@medicare.health',
+          age: 28,
+          gender: 'Female',
+          bloodGroup: 'O+',
+          allergies: 'Penicillin, Dust Mites',
+          emergencyContact: 'K. Sharma (+91 9876500000)'
+        },
+        doctor: null
+      },
+
+      registeredPatients: [
+        {
+          id: 'PAT-90821',
+          name: 'Ramya Sri',
+          phone: '+91 9876543210',
+          email: 'ramya.sri@medicare.health',
+          password: 'password123',
+          age: 28,
+          gender: 'Female',
+          bloodGroup: 'O+',
+          allergies: 'Penicillin, Dust Mites',
+          emergencyContact: 'K. Sharma (+91 9876500000)'
+        }
+      ],
+
+      selectedDoctor: null,
+      activeSlip: null,
+      globalFilterQuery: '',
+
+      doctors: [
+        { id: 'DOC-101', name: 'Dr. Rajesh Sharma', email: 'rajesh.sharma@medicare.health', password: 'doc123', regNo: 'MCI-39821', qualification: 'MBBS, MD, DM (Cardiology)', department: 'Cardiology', experience: 18, opdRoom: 'OPD Room 104 (Block A)', fee: 800, schedule: 'Mon - Fri (09:00 AM - 01:30 PM)', bio: 'Senior Interventional Cardiologist specializing in preventive cardiology, coronary angioplasty, and hypertension management.' },
+        { id: 'DOC-102', name: 'Dr. Priya Reddy', email: 'priya.reddy@medicare.health', password: 'doc123', regNo: 'MCI-44120', qualification: 'MBBS, DCH, DNB (Pediatrics)', department: 'Pediatrics', experience: 14, opdRoom: 'OPD Room 202 (Block B)', fee: 600, schedule: 'Mon, Wed, Fri (10:00 AM - 03:00 PM)', bio: 'Consultant Pediatrician with extensive focus on neonatal care, childhood asthma, vaccination schedules, and adolescent health.' },
+        { id: 'DOC-103', name: 'Dr. Amit Patel', email: 'amit.patel@medicare.health', password: 'doc123', regNo: 'MCI-29103', qualification: 'MBBS, MS (Orthopedics), M.Ch', department: 'Orthopedics', experience: 16, opdRoom: 'OPD Room 108 (Block A)', fee: 750, schedule: 'Tue, Thu, Sat (11:00 AM - 04:30 PM)', bio: 'Joint Replacement & Arthroscopy Surgeon specializing in knee/hip arthroplasty, sports ligament repair, and chronic spine care.' },
+        { id: 'DOC-104', name: 'Dr. Sneha Kumar', email: 'sneha.kumar@medicare.health', password: 'doc123', regNo: 'MCI-51829', qualification: 'MBBS, MD (Dermatology & Venereology)', department: 'Dermatology', experience: 10, opdRoom: 'OPD Room 301 (Block C)', fee: 600, schedule: 'Mon - Fri (02:00 PM - 06:30 PM)', bio: 'Clinical Dermatologist focusing on autoimmune skin disorders, allergic eczema, pediatric dermatology, and phototherapy.' },
+        { id: 'DOC-105', name: 'Dr. Vikram Singh', email: 'vikram.singh@medicare.health', password: 'doc123', regNo: 'MCI-19482', qualification: 'MBBS, MD, DM (Neurology)', department: 'Neurology', experience: 21, opdRoom: 'OPD Room 405 (Block A)', fee: 1000, schedule: 'Mon - Thu (10:00 AM - 02:00 PM)', bio: 'Senior Neurologist with deep expertise in stroke rehabilitation, epilepsy management, Parkinsonian tremors, and chronic migraines.' },
+        { id: 'DOC-106', name: 'Dr. Ananya Iyer', email: 'ananya.iyer@medicare.health', password: 'doc123', regNo: 'MCI-37194', qualification: 'MBBS, MS (Obstetrics & Gynecology), FICOG', department: 'Gynecology & Obstetrics', experience: 13, opdRoom: 'OPD Room 210 (Block B)', fee: 750, schedule: 'Mon - Sat (09:30 AM - 02:00 PM)', bio: 'Consultant Obstetrician & Gynecologist offering high-risk pregnancy care, fetal monitoring, PCOS management, and laparoscopic surgery.' },
+        { id: 'DOC-107', name: 'Dr. Suresh Nair', email: 'suresh.nair@medicare.health', password: 'doc123', regNo: 'MCI-11029', qualification: 'MBBS, MD (General Internal Medicine)', department: 'General Medicine', experience: 23, opdRoom: 'OPD Room 101 (Block A)', fee: 500, schedule: 'Mon - Sat (08:30 AM - 02:30 PM)', bio: 'Chief of General Medicine diagnosing complex fever etiologies, uncontrolled diabetes, metabolic disorders, and geriatric health.' },
+        { id: 'DOC-108', name: 'Dr. Neha Mukherjee', email: 'neha.mukherjee@medicare.health', password: 'doc123', regNo: 'MCI-48201', qualification: 'MBBS, MD, DNB (Pulmonary Medicine)', department: 'Pulmonology', experience: 11, opdRoom: 'OPD Room 305 (Block C)', fee: 700, schedule: 'Mon, Wed, Fri (01:00 PM - 05:30 PM)', bio: 'Pulmonologist and Critical Care Specialist dealing with severe COPD, bronchial asthma, sleep apnea, and post-viral pulmonary fibrosis.' }
+      ],
+
+      departments: [
+        { name: 'General Medicine', code: 'GM', head: 'Dr. Suresh Nair', floor: '1st Floor, Block A', phoneExt: '101', beds: 45, desc: 'Primary adult diagnostics, fever triage, metabolic diseases, and multisystem internal medicine.' },
+        { name: 'Cardiology', code: 'CARD', head: 'Dr. Rajesh Sharma', floor: '1st Floor, Block A', phoneExt: '104', beds: 30, desc: 'Cath lab operations, non-invasive cardiac testing (ECG, 2D-Echo, TMT), and heart failure unit.' },
+        { name: 'Pediatrics', code: 'PED', head: 'Dr. Priya Reddy', floor: '2nd Floor, Block B', phoneExt: '202', beds: 25, desc: 'Level-III NICU/PICU, pediatric immunization clinics, developmental monitoring, and child nutrition.' },
+        { name: 'Orthopedics', code: 'ORTH', head: 'Dr. Amit Patel', floor: '1st Floor, Block A', phoneExt: '108', beds: 28, desc: 'Trauma casualty, modular joint replacement theater, spine care, and dedicated physical therapy unit.' },
+        { name: 'Dermatology', code: 'DERM', head: 'Dr. Sneha Kumar', floor: '3rd Floor, Block C', phoneExt: '301', beds: 10, desc: 'Skin patch testing, dermato-pathology, cryotherapy, and outpatient laser clinics.' },
+        { name: 'Neurology', code: 'NEUR', head: 'Dr. Vikram Singh', floor: '4th Floor, Block A', phoneExt: '405', beds: 20, desc: 'Digital EEG/EMG laboratories, stroke ICU, neuromuscular disease clinic, and neuro-rehabilitation.' },
+        { name: 'Gynecology & Obstetrics', code: 'OBG', head: 'Dr. Ananya Iyer', floor: '2nd Floor, Block B', phoneExt: '210', beds: 35, desc: 'LDR birthing suites, fetal ultrasound, colposcopy, menopausal health, and fertility guidance.' },
+        { name: 'Pulmonology', code: 'PULM', head: 'Dr. Neha Mukherjee', floor: '3rd Floor, Block C', phoneExt: '305', beds: 18, desc: 'Pulmonary function lab (Spirometry/DLCO), bronchoscopy theater, and sleep study suites.' }
+      ],
+
+      labs: [
+        { id: 'LAB-01', name: 'Complete Blood Count (CBC) with ESR', sample: 'Blood (EDTA)', turnaround: '4 Hours', fasting: 'Not Required', price: 350, desc: 'Evaluates red cells, white cells, hemoglobin, platelets, and systemic infection markers.' },
+        { id: 'LAB-02', name: 'Lipid Profile Comprehensive (Cholesterol, HDL, LDL, Triglycerides)', sample: 'Blood (Serum)', turnaround: '6 Hours', fasting: '10-12 Hours Fasting Required', price: 650, desc: 'Assesses cardiovascular risk, lipid abnormalities, and arterial health parameters.' },
+        { id: 'LAB-03', name: 'Thyroid Profile (T3, T4, Ultrasensitive TSH)', sample: 'Blood (Serum)', turnaround: '6 Hours', fasting: 'Morning Sample Preferred', price: 550, desc: 'Diagnostic testing for hypothyroidism, hyperthyroidism, and endocrine regulation.' },
+        { id: 'LAB-04', name: 'HbA1c Glycated Hemoglobin (3-Month Sugar)', sample: 'Blood (Whole)', turnaround: '3 Hours', fasting: 'Not Required', price: 480, desc: 'Gold standard measure for chronic glycemic control and diabetes diagnosis.' },
+        { id: 'LAB-05', name: 'Liver Function Test (LFT with Enzymes & Bilirubin)', sample: 'Blood (Serum)', turnaround: '6 Hours', fasting: '8 Hours Fasting', price: 700, desc: 'Measures SGOT, SGPT, Alkaline Phosphatase, Total Bilirubin, and Albumin levels.' },
+        { id: 'LAB-06', name: 'Kidney Renal Panel (Serum Creatinine, Urea, Uric Acid, eGFR)', sample: 'Blood & Urine', turnaround: '4 Hours', fasting: 'Not Required', price: 600, desc: 'Screens glomerular filtration function and early renal impairment markers.' },
+        { id: 'LAB-07', name: 'Vitamin D (25-Hydroxy) & Vitamin B12 Duo', sample: 'Blood (Serum)', turnaround: '12 Hours', fasting: 'Not Required', price: 1200, desc: 'Detects severe micronutrient deficiencies affecting bone density, mood, and nerve conduction.' },
+        { id: 'LAB-08', name: 'Urine Routine & Microscopic Examination', sample: 'Clean Catch Urine', turnaround: '2 Hours', fasting: 'First Morning Sample Preferred', price: 200, desc: 'Detects urinary tract infections, proteinuria, hematuria, and crystal formation.' }
+      ],
+
+      medicines: [
+        { id: 'MED-01', name: 'Dolo 650 Tablet', generic: 'Paracetamol 650mg', manufacturer: 'Micro Labs Ltd', form: 'Strip of 15 Tablets', price: 34, rx: false, category: 'Fever & Analgesic' },
+        { id: 'MED-02', name: 'Augmentin 625 Duo', generic: 'Amoxicillin (500mg) + Clavulanic Acid (125mg)', manufacturer: 'GSK Pharmaceuticals', form: 'Strip of 10 Tablets', price: 205, rx: true, category: 'Antibiotics' },
+        { id: 'MED-03', name: 'Cetzine 10mg', generic: 'Cetirizine Hydrochloride 10mg', manufacturer: 'Dr. Reddy\'s', form: 'Strip of 10 Tablets', price: 28, rx: false, category: 'Antiallergic' },
+        { id: 'MED-04', name: 'Pan 40 Tablet', generic: 'Pantoprazole Sodium 40mg', manufacturer: 'Alkem Laboratories', form: 'Strip of 15 Tablets', price: 155, rx: false, category: 'Gastrointestinal' },
+        { id: 'MED-05', name: 'Glycomet 500 SR', generic: 'Metformin Hydrochloride 500mg', manufacturer: 'USV Private Ltd', form: 'Strip of 20 Tablets', price: 48, rx: true, category: 'Diabetes Care' },
+        { id: 'MED-06', name: 'Telma 40mg', generic: 'Telmisartan 40mg', manufacturer: 'Glenmark Pharma', form: 'Strip of 15 Tablets', price: 118, rx: true, category: 'Cardiovascular' },
+        { id: 'MED-07', name: 'Shelcal 500', generic: 'Elemental Calcium 500mg + Vitamin D3 250 IU', manufacturer: 'Torrent Pharma', form: 'Strip of 15 Tablets', price: 130, rx: false, category: 'Nutritional' },
+        { id: 'MED-08', name: 'Electral ORS Sachet 21.8g', generic: 'WHO Formula Oral Rehydration Salts', manufacturer: 'FDC Ltd', form: 'Box of 5 Sachets', price: 45, rx: false, category: 'First Aid' },
+        { id: 'MED-09', name: 'Azithral 500', generic: 'Azithromycin 500mg', manufacturer: 'Alembic Pharmaceuticals', form: 'Strip of 5 Tablets', price: 120, rx: true, category: 'Antibiotics' },
+        { id: 'MED-10', name: 'Combiflam Tablet', generic: 'Ibuprofen (400mg) + Paracetamol (325mg)', manufacturer: 'Sanofi India', form: 'Strip of 20 Tablets', price: 42, rx: false, category: 'Pain Relief' }
+      ],
+
+      appointments: [
+        {
+          id: 'OPD-8021',
+          doctorId: 'DOC-101',
+          doctorName: 'Dr. Rajesh Sharma',
+          department: 'Cardiology',
+          date: '2026-09-04',
+          timeSlot: '10:00 AM',
+          type: 'In-Person OPD Visit',
+          patientName: 'Ramya Sri',
+          patientPhone: '+91 9876543210',
+          reason: 'Routine Cardiac Health Checkup & ECG Review',
+          status: 'Confirmed',
+          tokenNumber: 'CARD-14',
+          room: 'OPD Room 104 (Block A)',
+          fee: 800
+        },
+        {
+          id: 'OPD-7914',
+          doctorId: 'DOC-104',
+          doctorName: 'Dr. Sneha Kumar',
+          department: 'Dermatology',
+          date: '2026-08-20',
+          timeSlot: '03:30 PM',
+          type: 'Tele-Consultation Video',
+          patientName: 'Ramya Sri',
+          patientPhone: '+91 9876543210',
+          reason: 'Seasonal Skin Rash & Allergy Review',
+          status: 'Completed',
+          tokenNumber: 'DERM-08',
+          room: 'Virtual Room 3',
+          fee: 600
+        }
+      ],
+
+      labOrders: [
+        {
+          id: 'LAB-REQ-4019',
+          testName: 'Complete Blood Count (CBC) with ESR',
+          sampleType: 'Home Sample Collection',
+          date: '2026-09-05',
+          slot: '07:30 AM - 08:30 AM',
+          status: 'Sample Collector Assigned',
+          amount: 350
+        }
+      ],
+
+      cart: [],
+      pharmacyOrders: [],
+
+      vitals: [
+        { date: '2026-08-31', systolic: 120, diastolic: 78, pulse: 74, sugar: 92, weight: 62.5 },
+        { date: '2026-08-24', systolic: 124, diastolic: 80, pulse: 76, sugar: 96, weight: 62.8 },
+        { date: '2026-08-15', systolic: 118, diastolic: 76, pulse: 72, sugar: 90, weight: 63.0 }
+      ]
+    };
+
+    // Load from LocalStorage
+    try {
+      if (localStorage.getItem('mc_session')) APP.currentSession = JSON.parse(localStorage.getItem('mc_session'));
+      if (localStorage.getItem('mc_patients')) APP.registeredPatients = JSON.parse(localStorage.getItem('mc_patients'));
+      if (localStorage.getItem('mc_custom_docs')) {
+        const addedDocs = JSON.parse(localStorage.getItem('mc_custom_docs'));
+        addedDocs.forEach(d => {
+          if (!APP.doctors.some(x => x.id === d.id)) APP.doctors.push(d);
+        });
+      }
+      if (localStorage.getItem('mc_apts')) APP.appointments = JSON.parse(localStorage.getItem('mc_apts'));
+      if (localStorage.getItem('mc_labs')) APP.labOrders = JSON.parse(localStorage.getItem('mc_labs'));
+      if (localStorage.getItem('mc_vitals')) APP.vitals = JSON.parse(localStorage.getItem('mc_vitals'));
+    } catch(e) {}
+
+    function persist() {
+      try {
+        localStorage.setItem('mc_session', JSON.stringify(APP.currentSession));
+        localStorage.setItem('mc_patients', JSON.stringify(APP.registeredPatients));
+        localStorage.setItem('mc_apts', JSON.stringify(APP.appointments));
+        localStorage.setItem('mc_labs', JSON.stringify(APP.labOrders));
+        localStorage.setItem('mc_vitals', JSON.stringify(APP.vitals));
+      } catch(e) {}
+      
+      const badge = document.getElementById('header-cart-badge');
+      if (badge) badge.textContent = APP.cart.reduce((s, i) => s + i.qty, 0);
+      renderAuthHeaders();
+    }
+
+    // =========================================================================
+    // AUTHENTICATION STATE & CONTROLLERS
+    // =========================================================================
+    let authViewRole = 'patient'; // 'patient' or 'doctor'
+    let authViewMode = 'login';   // 'login' or 'register'
+
+    function handlePatientLogin(e) {
+      e.preventDefault();
+      const id = document.getElementById('pat-login-id').value.trim();
+      const pw = document.getElementById('pat-login-pw').value;
+      const found = APP.registeredPatients.find(p => p.email.toLowerCase() === id.toLowerCase() || p.phone === id) || {
+        id: `PAT-${Math.floor(10000 + Math.random() * 90000)}`,
+        name: id.includes('@') ? id.split('@')[0] : 'Patient User',
+        phone: id.includes('@') ? '+91 9876543210' : id,
+        email: id.includes('@') ? id : 'patient@medicare.health',
+        age: 28,
+        gender: 'Female',
+        bloodGroup: 'O+',
+        allergies: 'None reported',
+        emergencyContact: '+91 9876500000'
+      };
+
+      APP.currentSession = {
+        isLoggedIn: true,
+        role: 'patient',
+        user: found,
+        doctor: null
+      };
+
+      persist();
+      alert(`Welcome, ${found.name}! Signed in successfully.`);
+      navigate('records');
+    }
+
+    function handlePatientRegister(e) {
+      e.preventDefault();
+      const name = document.getElementById('pat-reg-name').value.trim();
+      const phone = document.getElementById('pat-reg-phone').value.trim();
+      const email = document.getElementById('pat-reg-email').value.trim();
+      const pw = document.getElementById('pat-reg-pw').value;
+      const age = Number(document.getElementById('pat-reg-age').value);
+      const gender = document.getElementById('pat-reg-gender').value;
+      const blood = document.getElementById('pat-reg-blood').value;
+      const emg = document.getElementById('pat-reg-emg').value;
+      const allergies = document.getElementById('pat-reg-allergies').value || 'None reported';
+
+      const newPat = {
+        id: `PAT-${Math.floor(10000 + Math.random() * 90000)}`,
+        name,
+        phone,
+        email,
+        password: pw,
+        age,
+        gender,
+        bloodGroup: blood,
+        allergies,
+        emergencyContact: emg
+      };
+
+      APP.registeredPatients.push(newPat);
+      APP.currentSession = {
+        isLoggedIn: true,
+        role: 'patient',
+        user: newPat,
+        doctor: null
+      };
+
+      persist();
+      alert(`Patient account created successfully! Medical MRN: ${newPat.id}`);
+      navigate('records');
+    }
+
+    function handleDoctorLogin(e) {
+      e.preventDefault();
+      const email = document.getElementById('doc-login-select').value;
+      const doc = APP.doctors.find(d => d.email.toLowerCase() === email.toLowerCase()) || APP.doctors[0];
+
+      APP.currentSession = {
+        isLoggedIn: true,
+        role: 'doctor',
+        user: null,
+        doctor: doc
+      };
+
+      persist();
+      alert(`Doctor Station Authorized for ${doc.name} (${doc.department})`);
+      navigate('doc-station');
+    }
+
+    function handleDoctorRegister(e) {
+      e.preventDefault();
+      const name = document.getElementById('doc-reg-name').value.trim();
+      const mci = document.getElementById('doc-reg-mci').value.trim();
+      const dept = document.getElementById('doc-reg-dept').value;
+      const qual = document.getElementById('doc-reg-qual').value.trim();
+      const exp = Number(document.getElementById('doc-reg-exp').value);
+      const fee = Number(document.getElementById('doc-reg-fee').value);
+      const email = document.getElementById('doc-reg-email').value.trim();
+      const pw = document.getElementById('doc-reg-pw').value;
+      const room = document.getElementById('doc-reg-room').value.trim();
+      const bio = document.getElementById('doc-reg-bio').value.trim() || `Consultant in ${dept} with ${exp} years of specialized experience.`;
+
+      const newDoc = {
+        id: `DOC-${Math.floor(200 + Math.random() * 800)}`,
+        name,
+        email,
+        password: pw,
+        regNo: mci,
+        qualification: qual,
+        department: dept,
+        experience: exp,
+        opdRoom: room,
+        fee,
+        schedule: 'Mon - Sat (09:00 AM - 02:00 PM)',
+        bio
+      };
+
+      APP.doctors.unshift(newDoc);
+      try {
+        let customDocs = JSON.parse(localStorage.getItem('mc_custom_docs') || '[]');
+        customDocs.push(newDoc);
+        localStorage.setItem('mc_custom_docs', JSON.stringify(customDocs));
+      } catch(e) {}
+
+      APP.currentSession = {
+        isLoggedIn: true,
+        role: 'doctor',
+        user: null,
+        doctor: newDoc
+      };
+
+      persist();
+      alert(`Doctor Profile registered successfully! Added to ${dept} specialist roster.`);
+      navigate('doc-station');
+    }
+
+    function logoutSession() {
+      APP.currentSession = {
+        isLoggedIn: false,
+        role: 'patient',
+        user: null,
+        doctor: null
+      };
+      persist();
+      alert('You have logged out.');
+      navigate('home');
+    }
+
+    function renderAuthHeaders() {
+      const topBox = document.getElementById('top-auth-status-box');
+      const accountWrap = document.getElementById('header-user-account-wrapper');
+
+      if (!topBox || !accountWrap) return;
+
+      if (APP.currentSession && APP.currentSession.isLoggedIn) {
+        if (APP.currentSession.role === 'doctor') {
+          const doc = APP.currentSession.doctor || APP.doctors[0];
+          topBox.innerHTML = `
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <span style="font-size: 12px; font-weight: 800; color: #38bdf8; background: rgba(2, 132, 199, 0.2); padding: 4px 12px; border-radius: var(--radius-full); border: 1px solid #0284c7;">
+                🩺 Doctor Station: ${doc.name}
+              </span>
+              <button onclick="logoutSession()" style="background: transparent; border: 1px solid rgba(255,255,255,0.2); color: #f87171; font-size: 11px; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-weight: 700;">Logout</button>
+            </div>
+          `;
+
+          accountWrap.innerHTML = `
+            <div class="user-account-btn" onclick="navigate('doc-station')">
+              <span class="user-avatar-circle doc-circle">Dr</span>
+              <div style="text-align: left;">
+                <p style="font-weight: 800; font-size: 13px; color: var(--navy-950);">${doc.name}</p>
+                <p style="font-size: 11px; color: #0284c7; font-weight: 700;">${doc.department}</p>
+              </div>
+            </div>
+          `;
+        } else {
+          // PATIENT SESSION
+          const u = APP.currentSession.user || APP.registeredPatients[0];
+          topBox.innerHTML = `
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <span style="font-size: 12px; font-weight: 700; color: #cbd5e1;">
+                MRN: <strong style="color: #fff;">${u.id}</strong> (${u.name})
+              </span>
+              <button onclick="navigate('login')" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #38bdf8; font-size: 11px; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-weight: 700;">Switch Account</button>
+              <button onclick="logoutSession()" style="background: transparent; border: 1px solid rgba(255,255,255,0.2); color: #f87171; font-size: 11px; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-weight: 700;">Logout</button>
+            </div>
+          `;
+
+          accountWrap.innerHTML = `
+            <div class="user-account-btn" onclick="navigate('records')">
+              <span class="user-avatar-circle">${u.name.charAt(0)}</span>
+              <div style="text-align: left;">
+                <p style="font-weight: 800; font-size: 13px; color: var(--navy-950);">${u.name}</p>
+                <p style="font-size: 11px; color: var(--slate-500); font-weight: 700;">Patient Profile</p>
+              </div>
+            </div>
+          `;
+        }
+      } else {
+        // LOGGED OUT
+        topBox.innerHTML = `
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <button onclick="authViewRole='patient'; authViewMode='login'; navigate('login');" style="background: var(--blue-600); border: none; color: #fff; font-size: 12px; padding: 4px 12px; border-radius: 4px; cursor: pointer; font-weight: 700;">Patient Sign In</button>
+            <button onclick="authViewRole='doctor'; authViewMode='login'; navigate('login');" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff; font-size: 12px; padding: 4px 12px; border-radius: 4px; cursor: pointer; font-weight: 700;">Doctor Login</button>
+          </div>
+        `;
+
+        accountWrap.innerHTML = `
+          <div class="auth-nav-btn-group">
+            <button class="btn-auth-signin" onclick="authViewMode='login'; navigate('login');">
+              <svg class="icon" style="width: 16px; height: 16px;" viewBox="0 0 24 24"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" x2="3" y1="12" y2="12"/></svg>
+              <span>Sign In</span>
+            </button>
+            <button class="btn-auth-register" onclick="authViewMode='register'; navigate('login');">
+              <svg class="icon" style="width: 16px; height: 16px;" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" x2="20" y1="8" y2="14"/><line x1="23" x2="17" y1="11" y2="11"/></svg>
+              <span>Register</span>
+            </button>
+          </div>
+        `;
+      }
+    }
+
+    function navigate(view, extra = {}) {
+      APP.view = view;
+      if (extra.doctor) APP.selectedDoctor = extra.doctor;
+      if (extra.slip) APP.activeSlip = extra.slip;
+
+      document.querySelectorAll('.nav-tab-item').forEach(el => {
+        el.classList.toggle('active', el.dataset.tab === view);
+      });
+      closeOmniSearchDropdown();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      renderApp();
+    }
+
+    function filterByDept(deptName) {
+      APP.globalFilterQuery = deptName;
+      navigate('doctors');
+    }
+
+    function openBooking(docId = null) {
+      if (docId) APP.selectedDoctor = APP.doctors.find(d => d.id === docId);
+      else if (!APP.selectedDoctor) APP.selectedDoctor = APP.doctors[0];
+      navigate('book-appointment');
+    }
+
+    // =========================================================================
+    // 🔍 SEARCH ENGINE
+    // =========================================================================
+    function handleOmniSearchInput(query) {
+      const clearBtn = document.getElementById('search-clear-btn');
+      if (clearBtn) clearBtn.style.display = query ? 'flex' : 'none';
+
+      APP.globalFilterQuery = query.trim();
+      const dropdown = document.getElementById('search-dropdown-menu');
+
+      if (!query || query.trim().length === 0) {
+        closeOmniSearchDropdown();
+        return;
+      }
+
+      const q = query.toLowerCase().trim();
+
+      const matchedDocs = APP.doctors.filter(d => 
+        d.name.toLowerCase().includes(q) || 
+        d.department.toLowerCase().includes(q) || 
+        d.qualification.toLowerCase().includes(q) ||
+        d.bio.toLowerCase().includes(q)
+      );
+
+      const matchedLabs = APP.labs.filter(l => 
+        l.name.toLowerCase().includes(q) || 
+        l.desc.toLowerCase().includes(q) ||
+        l.sample.toLowerCase().includes(q)
+      );
+
+      const matchedMeds = APP.medicines.filter(m => 
+        m.name.toLowerCase().includes(q) || 
+        m.generic.toLowerCase().includes(q) || 
+        m.category.toLowerCase().includes(q) ||
+        m.manufacturer.toLowerCase().includes(q)
+      );
+
+      const matchedDepts = APP.departments.filter(dept => 
+        dept.name.toLowerCase().includes(q) || 
+        dept.desc.toLowerCase().includes(q) ||
+        dept.head.toLowerCase().includes(q)
+      );
+
+      const totalMatches = matchedDocs.length + matchedLabs.length + matchedMeds.length + matchedDepts.length;
+
+      if (totalMatches === 0) {
+        dropdown.innerHTML = `
+          <div style="padding: 24px; text-align: center; color: var(--slate-500); font-size: 14px;">
+            No hospital records found for "<strong>${query}</strong>". Try searching for doctor name, "Cardiology", "CBC", or "Dolo".
+          </div>
+        `;
+        dropdown.classList.add('active');
+        return;
+      }
+
+      let html = `
+        <div class="search-dropdown-header">
+          <span>Search Results (${totalMatches} Found)</span>
+          <span>Press ESC to close</span>
+        </div>
+      `;
+
+      if (matchedDocs.length > 0) {
+        html += `<div style="background: #f8fafc; padding: 6px 18px; font-size: 11px; font-weight: 900; color: #0284c7; text-transform: uppercase;">Consulting Specialists (${matchedDocs.length})</div>`;
+        matchedDocs.slice(0, 3).forEach(doc => {
+          html += `
+            <div class="search-result-item" onclick="openBooking('${doc.id}')">
+              <div style="display: flex; align-items: center; gap: 10px;">
+                ${getDeptIconSVG(doc.department)}
+                <div>
+                  <strong style="font-size: 15px; color: var(--navy-950);">${doc.name}</strong>
+                  <p style="font-size: 12px; color: var(--slate-500);">${doc.qualification} • <span style="color: #0284c7; font-weight: 700;">${doc.department}</span></p>
+                </div>
+              </div>
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <span style="font-weight: 900; font-size: 15px;">₹${doc.fee}</span>
+                <span class="badge badge-blue" style="font-size: 11px;">Book OPD →</span>
+              </div>
+            </div>
+          `;
+        });
+      }
+
+      if (matchedLabs.length > 0) {
+        html += `<div style="background: #f8fafc; padding: 6px 18px; font-size: 11px; font-weight: 900; color: #16a34a; text-transform: uppercase;">Diagnostic Lab Tests (${matchedLabs.length})</div>`;
+        matchedLabs.slice(0, 3).forEach(test => {
+          html += `
+            <div class="search-result-item" onclick="chosenLabTest = APP.labs.find(l=>l.id==='${test.id}'); navigate('labs');">
+              <div>
+                <strong style="font-size: 15px; color: var(--navy-950);">${test.name}</strong>
+                <p style="font-size: 12px; color: var(--slate-500);">${test.sample} • Turnaround: ${test.turnaround}</p>
+              </div>
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <span style="font-weight: 900; font-size: 15px;">₹${test.price}</span>
+                <span class="badge badge-emerald" style="font-size: 11px;">Order Lab →</span>
+              </div>
+            </div>
+          `;
+        });
+      }
+
+      if (matchedMeds.length > 0) {
+        html += `<div style="background: #f8fafc; padding: 6px 18px; font-size: 11px; font-weight: 900; color: #d97706; text-transform: uppercase;">Prescription Pharmacy (${matchedMeds.length})</div>`;
+        matchedMeds.slice(0, 3).forEach(med => {
+          html += `
+            <div class="search-result-item" onclick="addToDispensaryCart('${med.id}'); navigate('pharmacy');">
+              <div style="display: flex; align-items: center; gap: 12px;">
+                ${getMedicineTabletIconSVG(med.category, med.form)}
+                <div>
+                  <strong style="font-size: 15px; color: var(--navy-950);">${med.name}</strong>
+                  <p style="font-size: 12px; color: var(--slate-500);">${med.generic} • <span style="color: #d97706; font-weight: 700;">${med.category}</span></p>
+                </div>
+              </div>
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <span style="font-weight: 900; font-size: 15px;">₹${med.price}</span>
+                <span class="badge badge-amber" style="font-size: 11px;">+ Add to Cart</span>
+              </div>
+            </div>
+          `;
+        });
+      }
+
+      if (matchedDepts.length > 0) {
+        html += `<div style="background: #f8fafc; padding: 6px 18px; font-size: 11px; font-weight: 900; color: #475569; text-transform: uppercase;">Specialty Departments (${matchedDepts.length})</div>`;
+        matchedDepts.slice(0, 2).forEach(dept => {
+          html += `
+            <div class="search-result-item" onclick="filterByDept('${dept.name}');">
+              <div style="display: flex; align-items: center; gap: 10px;">
+                ${getDeptIconSVG(dept.name)}
+                <div>
+                  <strong style="font-size: 15px; color: var(--navy-950);">${dept.name}</strong>
+                  <p style="font-size: 12px; color: var(--slate-500);">Head: ${dept.head} • ${dept.floor}</p>
+                </div>
+              </div>
+              <span class="badge badge-slate" style="font-size: 11px;">View Department →</span>
+            </div>
+          `;
+        });
+      }
+
+      dropdown.innerHTML = html;
+      dropdown.classList.add('active');
+    }
+
+    function handleOmniSearchFocus() {
+      const input = document.getElementById('global-header-search');
+      if (input && input.value.trim().length > 0) {
+        handleOmniSearchInput(input.value);
+      }
+    }
+
+    function handleOmniSearchKeydown(e) {
+      if (e.key === 'Escape') {
+        closeOmniSearchDropdown();
+      } else if (e.key === 'Enter') {
+        const input = document.getElementById('global-header-search');
+        if (input && input.value.trim().length > 0) {
+          navigate('doctors');
+        }
+      }
+    }
+
+    function clearOmniSearch() {
+      const input = document.getElementById('global-header-search');
+      if (input) {
+        input.value = '';
+        input.focus();
+      }
+      APP.globalFilterQuery = '';
+      closeOmniSearchDropdown();
+      renderApp();
+    }
+
+    function closeOmniSearchDropdown() {
+      const dropdown = document.getElementById('search-dropdown-menu');
+      if (dropdown) dropdown.classList.remove('active');
+    }
+
+    document.addEventListener('click', (e) => {
+      const searchBox = document.getElementById('omni-search-container');
+      if (searchBox && !searchBox.contains(e.target)) {
+        closeOmniSearchDropdown();
+      }
+    });
+
+    // =========================================================================
+    // VIEW ROUTING (100% COVERAGE)
+    // =========================================================================
+    function renderApp() {
+      const target = document.getElementById('app-dynamic-view');
+      if (!target) return;
+
+      renderAuthHeaders();
+
+      switch(APP.view) {
+        case 'home': target.innerHTML = buildHomeView(); break;
+        case 'doctors': target.innerHTML = buildDoctorsView(); break;
+        case 'book-appointment': target.innerHTML = buildBookAppointmentView(); break;
+        case 'appointments': target.innerHTML = buildAppointmentsView(); break;
+        case 'departments': target.innerHTML = buildDepartmentsView(); break;
+        case 'labs': target.innerHTML = buildLabsView(); break;
+        case 'pharmacy': target.innerHTML = buildPharmacyView(); break;
+        case 'triage': target.innerHTML = buildTriageView(); break;
+        case 'records': target.innerHTML = buildRecordsView(); break;
+        case 'doc-station': target.innerHTML = buildDoctorStationView(); break;
+        case 'login': target.innerHTML = buildAuthPageView(); break;
+        case 'emergency': target.innerHTML = buildEmergencyView(); break;
+        default: target.innerHTML = buildHomeView();
+      }
+    }
+
+    // 0. DEDICATED FULL-PAGE AUTH VIEW (SIGN IN / REGISTER FOR PATIENT & DOCTOR)
+    function buildAuthPageView() {
+      return `
+        <div style="max-width: 800px; margin: 20px auto;">
+          <div class="card-panel" style="padding: 0; overflow: hidden; border: 1.5px solid var(--slate-300); box-shadow: var(--shadow-lg);">
+            <div style="background: var(--navy-950); color: #ffffff; padding: 28px 36px; display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <span class="badge badge-blue" style="margin-bottom: 6px;">MediCare Access & Identity Portal</span>
+                <h2 style="font-size: 24px; font-weight: 900;">Secure Portal Authentication</h2>
+              </div>
+              <button class="btn btn-subtle btn-sm" onclick="navigate('home')">← Back to Overview</button>
+            </div>
+
+            <!-- Role Selector -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; background: var(--slate-100); border-bottom: 1.5px solid var(--slate-200);">
+              <button class="btn" style="border-radius: 0; padding: 18px; font-weight: 900; font-size: 15px; ${authViewRole === 'patient' ? 'background: #fff; color: var(--navy-950); border-bottom: 3px solid var(--blue-600);' : 'background: transparent; color: var(--slate-500);'}" onclick="authViewRole='patient'; renderApp();">
+                👤 Patient Access Portal
+              </button>
+              <button class="btn" style="border-radius: 0; padding: 18px; font-weight: 900; font-size: 15px; ${authViewRole === 'doctor' ? 'background: #fff; color: var(--navy-950); border-bottom: 3px solid var(--blue-600);' : 'background: transparent; color: var(--slate-500);'}" onclick="authViewRole='doctor'; renderApp();">
+                🩺 Doctor / Medical Staff
+              </button>
+            </div>
+
+            <div style="padding: 36px;">
+              <!-- Mode Selector (Sign In vs Register) -->
+              <div style="display: flex; gap: 12px; background: var(--slate-100); padding: 4px; border-radius: var(--radius-md); margin-bottom: 32px;">
+                <button class="btn" style="flex: 1; padding: 12px; font-size: 14px; font-weight: 800; border-radius: 8px; ${authViewMode === 'login' ? 'background: #fff; color: var(--navy-950); box-shadow: var(--shadow-sm);' : 'background: transparent; color: var(--slate-500);'}" onclick="authViewMode='login'; renderApp();">
+                  Sign In to Account
+                </button>
+                <button class="btn" style="flex: 1; padding: 12px; font-size: 14px; font-weight: 800; border-radius: 8px; ${authViewMode === 'register' ? 'background: #fff; color: var(--navy-950); box-shadow: var(--shadow-sm);' : 'background: transparent; color: var(--slate-500);'}" onclick="authViewMode='register'; renderApp();">
+                  Create New Account
+                </button>
+              </div>
+
+              ${authViewRole === 'patient' ? `
+                ${authViewMode === 'login' ? `
+                  <!-- PATIENT LOGIN FORM -->
+                  <form onsubmit="handlePatientLogin(event)">
+                    <div class="field-group">
+                      <label class="field-label">Registered Phone Number or Email</label>
+                      <input type="text" id="pat-login-id" required value="ramya.sri@medicare.health" placeholder="e.g. +91 9876543210 or email">
+                    </div>
+                    <div class="field-group">
+                      <label class="field-label">Account Password</label>
+                      <input type="password" id="pat-login-pw" required value="password123" placeholder="Enter your password">
+                    </div>
+                    <button type="submit" class="btn btn-solid-dark" style="width: 100%; padding: 18px; font-size: 16px; margin-top: 12px;">
+                      Sign In as Patient →
+                    </button>
+                  </form>
+                ` : `
+                  <!-- PATIENT REGISTER FORM -->
+                  <form onsubmit="handlePatientRegister(event)">
+                    <div class="field-row">
+                      <div class="field-group">
+                        <label class="field-label">Full Legal Name</label>
+                        <input type="text" id="pat-reg-name" required placeholder="e.g. K. Ramya Sri">
+                      </div>
+                      <div class="field-group">
+                        <label class="field-label">Mobile Number</label>
+                        <input type="tel" id="pat-reg-phone" required placeholder="+91 9876543210">
+                      </div>
+                    </div>
+                    <div class="field-row">
+                      <div class="field-group">
+                        <label class="field-label">Email Address</label>
+                        <input type="email" id="pat-reg-email" required placeholder="name@domain.com">
+                      </div>
+                      <div class="field-group">
+                        <label class="field-label">Account Password</label>
+                        <input type="password" id="pat-reg-pw" required placeholder="Minimum 6 characters">
+                      </div>
+                    </div>
+                    <div class="field-row">
+                      <div class="field-group">
+                        <label class="field-label">Age</label>
+                        <input type="number" id="pat-reg-age" required min="1" max="120" value="28">
+                      </div>
+                      <div class="field-group">
+                        <label class="field-label">Gender</label>
+                        <select id="pat-reg-gender">
+                          <option>Female</option>
+                          <option>Male</option>
+                          <option>Other</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="field-row">
+                      <div class="field-group">
+                        <label class="field-label">Blood Group</label>
+                        <select id="pat-reg-blood">
+                          <option>O+</option><option>O-</option><option>A+</option><option>A-</option>
+                          <option>B+</option><option>B-</option><option>AB+</option><option>AB-</option>
+                        </select>
+                      </div>
+                      <div class="field-group">
+                        <label class="field-label">Emergency Phone Contact</label>
+                        <input type="tel" id="pat-reg-emg" required placeholder="+91 9876500000">
+                      </div>
+                    </div>
+                    <div class="field-group">
+                      <label class="field-label">Known Drug Allergies / Conditions</label>
+                      <input type="text" id="pat-reg-allergies" placeholder="e.g. Penicillin, Sulfa, None">
+                    </div>
+                    <button type="submit" class="btn btn-solid-dark" style="width: 100%; padding: 18px; font-size: 16px;">
+                      Complete Registration & Issue Medical MRN →
+                    </button>
+                  </form>
+                `}
+              ` : `
+                ${authViewMode === 'login' ? `
+                  <!-- DOCTOR LOGIN FORM -->
+                  <form onsubmit="handleDoctorLogin(event)">
+                    <div class="field-group">
+                      <label class="field-label">Select Specialist Doctor</label>
+                      <select id="doc-login-select">
+                        ${APP.doctors.map(d => `<option value="${d.email}">${d.name} (${d.department}) — Reg: ${d.regNo || 'Verified'}</option>`).join('')}
+                      </select>
+                    </div>
+                    <div class="field-group">
+                      <label class="field-label">Doctor Security Access PIN / Password</label>
+                      <input type="password" id="doc-login-pw" required value="doc123" placeholder="Enter clinical access PIN">
+                    </div>
+                    <button type="submit" class="btn btn-solid-blue" style="width: 100%; padding: 18px; font-size: 16px;">
+                      Authorize Doctor Station Session →
+                    </button>
+                  </form>
+                ` : `
+                  <!-- DOCTOR REGISTER FORM -->
+                  <form onsubmit="handleDoctorRegister(event)">
+                    <div class="field-row">
+                      <div class="field-group">
+                        <label class="field-label">Doctor Full Legal Name</label>
+                        <input type="text" id="doc-reg-name" required placeholder="e.g. Dr. Ramesh Gupta">
+                      </div>
+                      <div class="field-group">
+                        <label class="field-label">Medical Council Reg. No (MCI / NMC)</label>
+                        <input type="text" id="doc-reg-mci" required placeholder="e.g. MCI-67291">
+                      </div>
+                    </div>
+                    <div class="field-row">
+                      <div class="field-group">
+                        <label class="field-label">Specialty Department</label>
+                        <select id="doc-reg-dept">
+                          ${APP.departments.map(dept => `<option>${dept.name}</option>`).join('')}
+                        </select>
+                      </div>
+                      <div class="field-group">
+                        <label class="field-label">Qualifications / Degrees</label>
+                        <input type="text" id="doc-reg-qual" required placeholder="e.g. MBBS, MD, DM, M.Ch">
+                      </div>
+                    </div>
+                    <div class="field-row">
+                      <div class="field-group">
+                        <label class="field-label">Clinical Experience (Years)</label>
+                        <input type="number" id="doc-reg-exp" required min="1" max="60" value="12">
+                      </div>
+                      <div class="field-group">
+                        <label class="field-label">OPD Consultation Fee (₹)</label>
+                        <input type="number" id="doc-reg-fee" required min="100" max="5000" value="800">
+                      </div>
+                    </div>
+                    <div class="field-row">
+                      <div class="field-group">
+                        <label class="field-label">Doctor Email</label>
+                        <input type="email" id="doc-reg-email" required placeholder="doctor@medicare.health">
+                      </div>
+                      <div class="field-group">
+                        <label class="field-label">Access PIN / Password</label>
+                        <input type="password" id="doc-reg-pw" required placeholder="Set 6-digit access PIN">
+                      </div>
+                    </div>
+                    <div class="field-group">
+                      <label class="field-label">Assigned OPD Room & Hours</label>
+                      <input type="text" id="doc-reg-room" required value="OPD Room 204 (Block A) • Mon-Sat 10:00 AM - 02:00 PM">
+                    </div>
+                    <button type="submit" class="btn btn-solid-blue" style="width: 100%; padding: 18px; font-size: 16px;">
+                      Register Doctor & Join Hospital Specialist Directory →
+                    </button>
+                  </form>
+                `}
+              `}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // 1. HOME VIEW
+    function buildHomeView() {
+      const activeApts = APP.appointments.filter(a => a.status === 'Confirmed');
+      const upcoming = activeApts.length > 0 ? activeApts[0] : null;
+
+      return `
+        <div style="display: flex; flex-direction: column; gap: 36px;">
+          
+          <!-- Grand Full Width Banner -->
+          <div class="card-panel" style="background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%); border: 1.5px solid #bfdbfe;">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 36px;">
+              <div style="max-width: 960px;">
+                <span class="badge badge-blue" style="margin-bottom: 16px;">
+                  <svg class="icon" style="width: 16px; height: 16px;" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  NABH & NABL Accredited Center of Clinical Excellence
+                </span>
+                <h1 class="page-hero-title" style="margin-bottom: 16px;">
+                  Comprehensive Outpatient Consultations & Specialized Inpatient Medicine
+                </h1>
+                <p class="page-hero-subtitle">
+                  Direct appointment scheduling with verified heads of cardiology, pediatrics, orthopedics, neurology, and internal medicine. Automated token issuance, diagnostic home phlebotomy, and licensed dispensary care.
+                </p>
+              </div>
+
+              <!-- Quick Launch Actions -->
+              <div style="display: flex; flex-direction: column; gap: 14px; min-width: 320px;">
+                <button class="btn btn-solid-dark" style="padding: 16px 28px; font-size: 16px;" onclick="openBooking()">
+                  <svg class="icon" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+                  <span>Schedule OPD Appointment</span>
+                </button>
+                <button class="btn btn-subtle" style="padding: 16px 28px; font-size: 16px;" onclick="navigate('labs')">
+                  <svg class="icon" viewBox="0 0 24 24"><path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-10.127A2 2 0 0 1 14 9.527V2"/></svg>
+                  <span>Order Diagnostic Lab Tests</span>
+                </button>
+                <button class="btn btn-solid-rose" style="padding: 16px 28px; font-size: 16px;" onclick="navigate('emergency')">
+                  <svg class="icon" viewBox="0 0 24 24"><path d="M10 10h4"/><path d="M12 8v4"/><rect width="16" height="11" x="1" y="8" rx="2"/><circle cx="7" cy="19" r="2"/><circle cx="17" cy="19" r="2"/></svg>
+                  <span>Emergency Casualty (108)</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Big Stat Indicators -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 28px; margin-top: 48px; padding-top: 36px; border-top: 1px solid var(--slate-200);">
+              <div>
+                <p style="font-size: 12px; font-weight: 800; text-transform: uppercase; color: var(--slate-500); letter-spacing: 0.5px;">Consulting Specialists</p>
+                <p style="font-size: 36px; font-weight: 900; color: var(--navy-950);">${APP.doctors.length} On Duty</p>
+              </div>
+              <div>
+                <p style="font-size: 12px; font-weight: 800; text-transform: uppercase; color: var(--slate-500); letter-spacing: 0.5px;">Clinical Units</p>
+                <p style="font-size: 36px; font-weight: 900; color: var(--navy-950);">${APP.departments.length} Units</p>
+              </div>
+              <div>
+                <p style="font-size: 12px; font-weight: 800; text-transform: uppercase; color: var(--blue-600);">${activeApts.length} Confirmed</p>
+              </div>
+              <div>
+                <p style="font-size: 12px; font-weight: 800; text-transform: uppercase; color: var(--slate-500); letter-spacing: 0.5px;">Trauma Casualty</p>
+                <p style="font-size: 36px; font-weight: 900; color: var(--emerald-600);">24/7 Active</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Active Appointment Notification Banner -->
+          ${upcoming ? `
+            <div class="card-panel" style="background: #f0fdf4; border-color: #bbf7d0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; padding: 28px 40px;">
+              <div style="display: flex; align-items: center; gap: 20px;">
+                <div style="width: 56px; height: 56px; border-radius: var(--radius-md); background: #16a34a; color: #fff; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(22, 163, 74, 0.25);">
+                  <svg style="width: 30px; height: 30px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><path d="m9 16 2 2 4-4"/></svg>
+                </div>
+                <div>
+                  <span class="badge badge-emerald" style="margin-bottom: 4px;">Next Confirmed Consultation</span>
+                  <h3 style="font-size: 20px; font-weight: 900; color: #14532d;">${upcoming.doctorName} (${upcoming.department})</h3>
+                  <p style="font-size: 15px; color: #166534; margin-top: 2px;">
+                    Date: <strong>${upcoming.date}</strong> at <strong>${upcoming.timeSlot}</strong> • Room: <strong>${upcoming.room}</strong> • Token: <strong style="font-family: monospace; background: #dcfce7; padding: 2px 10px; border-radius: 6px; border: 1px solid #86efac;">#${upcoming.tokenNumber}</strong>
+                  </p>
+                </div>
+              </div>
+              <button class="btn btn-subtle" style="border-color: #86efac; color: #14532d; font-weight: 800;" onclick="navigate('appointments', { slip: upcoming })">
+                View & Print Token Slip →
+              </button>
+            </div>
+          ` : ''}
+
+          <!-- Featured Specialists Row with Real Time SVG Specialty Icons -->
+          <div class="card-panel">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 28px;">
+              <div>
+                <h2 style="font-size: 24px; font-weight: 900; color: var(--navy-950);">Consulting Specialist Doctors on Duty</h2>
+                <p style="font-size: 14px; color: var(--slate-500); margin-top: 2px;">Verified specialists available for outpatient consultation</p>
+              </div>
+              <button class="btn btn-subtle btn-sm" onclick="navigate('doctors')">View All Doctors (${APP.doctors.length}) →</button>
+            </div>
+
+            <div class="grid-2-col">
+              ${APP.doctors.slice(0, 4).map(doc => `
+                <div style="border: 1.5px solid var(--slate-200); border-radius: var(--radius-lg); padding: 28px; background: #fafcff; display: flex; flex-direction: column; justify-content: space-between; gap: 20px;">
+                  <div>
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                      <div style="display: flex; gap: 16px;">
+                        <div style="width: 52px; height: 52px; border-radius: 12px; background: #ffffff; border: 1.5px solid var(--slate-200); display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-sm); flex-shrink: 0;">
+                          ${getDeptIconSVG(doc.department)}
+                        </div>
+                        <div>
+                          <span class="badge badge-blue">${doc.department}</span>
+                          <h3 style="font-size: 20px; font-weight: 900; color: var(--navy-950); margin-top: 6px;">${doc.name}</h3>
+                          <p style="font-size: 13px; font-weight: 700; color: var(--slate-600);">${doc.qualification}</p>
+                        </div>
+                      </div>
+                      <div style="text-align: right;">
+                        <span style="font-size: 24px; font-weight: 900; color: var(--navy-950);">₹${doc.fee}</span>
+                        <p style="font-size: 12px; color: var(--slate-400); font-weight: 600;">OPD Visit</p>
+                      </div>
+                    </div>
+                    <p style="font-size: 14px; color: var(--slate-500); margin-top: 14px; line-height: 1.6;">${doc.bio}</p>
+                  </div>
+
+                  <div style="padding-top: 16px; border-top: 1px solid var(--slate-200); display: flex; justify-content: space-between; align-items: center; flex-wrap: gap; gap: 12px;">
+                    <div style="font-size: 13px; color: var(--slate-600);">
+                      <p><strong><svg class="icon" style="width: 14px; height: 14px; vertical-align: -2px;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Hours:</strong> ${doc.schedule}</p>
+                      <p><strong><svg class="icon" style="width: 14px; height: 14px; vertical-align: -2px;" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Location:</strong> ${doc.opdRoom}</p>
+                    </div>
+                    <button class="btn btn-solid-dark btn-sm" onclick="openBooking('${doc.id}')">Book Visit</button>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // 2. DOCTORS DIRECTORY VIEW
+    function buildDoctorsView() {
+      const q = APP.globalFilterQuery.toLowerCase();
+      const filtered = APP.doctors.filter(d => !q || `${d.name} ${d.qualification} ${d.department} ${d.bio}`.toLowerCase().includes(q));
+
+      return `
+        <div style="display: flex; flex-direction: column; gap: 28px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+            <div>
+              <h1 class="page-hero-title">Hospital Specialist Doctors & Clinical Directory</h1>
+              <p class="page-hero-subtitle">Verified department heads, outpatient consulting hours, and room locations.</p>
+            </div>
+            <button class="btn btn-subtle btn-sm" onclick="authViewRole='doctor'; authViewMode='register'; navigate('login');">+ Register New Specialist Doctor</button>
+          </div>
+
+          <!-- Filter Pills Row -->
+          <div style="display: flex; gap: 10px; overflow-x: auto; padding-bottom: 6px;">
+            <button class="btn btn-subtle btn-sm ${!APP.globalFilterQuery ? 'btn-solid-dark' : ''}" onclick="APP.globalFilterQuery = ''; renderApp();">All Specialties (${APP.doctors.length})</button>
+            ${APP.departments.map(dept => `
+              <button class="btn btn-subtle btn-sm ${APP.globalFilterQuery.toLowerCase() === dept.name.toLowerCase() ? 'btn-solid-dark' : ''}" onclick="filterByDept('${dept.name}')">
+                ${dept.name}
+              </button>
+            `).join('')}
+          </div>
+
+          <div class="grid-2-col">
+            ${filtered.length === 0 ? `
+              <div class="card-panel" style="grid-column: 1/-1; text-align: center; color: var(--slate-500); padding: 60px;">No doctors found matching "${q}".</div>
+            ` : filtered.map(doc => `
+              <div class="card-panel" style="display: flex; flex-direction: column; justify-content: space-between; gap: 24px;">
+                <div>
+                  <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                    <div style="display: flex; gap: 16px;">
+                      <div style="width: 58px; height: 58px; border-radius: 14px; background: #ffffff; border: 1.5px solid var(--slate-200); display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-sm); flex-shrink: 0;">
+                        ${getDeptIconSVG(doc.department)}
+                      </div>
+                      <div>
+                        <span class="badge badge-blue">${doc.department}</span>
+                        <h3 style="font-size: 22px; font-weight: 900; color: var(--navy-950); margin-top: 6px;">${doc.name}</h3>
+                        <p style="font-size: 14px; font-weight: 700; color: var(--slate-600);">${doc.qualification} • Reg: ${doc.regNo || 'Verified'}</p>
+                      </div>
+                    </div>
+                    <div style="text-align: right;">
+                      <span style="font-size: 26px; font-weight: 900; color: var(--navy-950);">₹${doc.fee}</span>
+                      <p style="font-size: 12px; color: var(--slate-400); font-weight: 600;">OPD Consultation</p>
+                    </div>
+                  </div>
+
+                  <p style="font-size: 14px; color: var(--slate-500); margin-top: 14px; line-height: 1.6;">${doc.bio}</p>
+
+                  <div style="background: var(--slate-50); padding: 16px; border-radius: var(--radius-md); margin-top: 18px; font-size: 13px; color: var(--slate-700); border: 1px solid var(--slate-200); display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                    <p><strong><svg class="icon" style="width: 14px; height: 14px; vertical-align: -2px;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Hours:</strong> ${doc.schedule}</p>
+                    <p><strong><svg class="icon" style="width: 14px; height: 14px; vertical-align: -2px;" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Location:</strong> ${doc.opdRoom}</p>
+                    <p><strong><svg class="icon" style="width: 14px; height: 14px; vertical-align: -2px;" viewBox="0 0 24 24"><path d="M12 8v4l3 3"/><circle cx="12" cy="12" r="10"/></svg> Experience:</strong> ${doc.experience} Years</p>
+                    <p><strong><svg class="icon" style="width: 14px; height: 14px; vertical-align: -2px;" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Status:</strong> Active On-Duty</p>
+                  </div>
+                </div>
+
+                <button class="btn btn-solid-dark" style="width: 100%;" onclick="openBooking('${doc.id}')">
+                  <svg class="icon" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+                  <span>Select & Book OPD Visit</span>
+                </button>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    // 3. BOOK APPOINTMENT VIEW
+    let currentChosenSlot = '10:00 AM';
+    function buildBookAppointmentView() {
+      const doc = APP.selectedDoctor || APP.doctors[0];
+      const tomorrow = new Date(Date.now() + 86400000).toISOString().split('T')[0];
+      const slots = ['09:00 AM', '09:30 AM', '10:00 AM', '10:30 AM', '11:15 AM', '11:45 AM', '12:15 PM', '01:00 PM', '02:30 PM', '03:00 PM', '03:45 PM', '04:30 PM'];
+      const curPat = (APP.currentSession && APP.currentSession.user) ? APP.currentSession.user : APP.registeredPatients[0];
+
+      return `
+        <div style="display: flex; flex-direction: column; gap: 28px;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+              <h1 class="page-hero-title">Schedule Hospital OPD Appointment</h1>
+              <p class="page-hero-subtitle">Direct slot allocation with instant token generation.</p>
+            </div>
+            <button class="btn btn-subtle btn-sm" onclick="navigate('doctors')">← Return to Directory</button>
+          </div>
+
+          <div class="grid-form-split">
+            <div class="card-panel">
+              <form onsubmit="handleBookAppointmentSubmit(event)">
+                <div class="field-group">
+                  <label class="field-label">Consulting Specialist Doctor</label>
+                  <select id="book-doc-select" onchange="APP.selectedDoctor = APP.doctors.find(d=>d.id===this.value); renderApp();">
+                    ${APP.doctors.map(d => `<option value="${d.id}" ${d.id === doc.id ? 'selected' : ''}>${d.name} — ${d.department} (${d.qualification}) — ₹${d.fee}</option>`).join('')}
+                  </select>
+                </div>
+
+                <div class="field-row">
+                  <div class="field-group">
+                    <label class="field-label">Patient Legal Name</label>
+                    <input type="text" id="book-name" required value="${curPat.name}">
+                  </div>
+                  <div class="field-group">
+                    <label class="field-label">Contact Phone</label>
+                    <input type="tel" id="book-phone" required value="${curPat.phone}">
+                  </div>
+                </div>
+
+                <div class="field-row">
+                  <div class="field-group">
+                    <label class="field-label">Patient Age</label>
+                    <input type="number" id="book-age" required min="1" max="120" value="${curPat.age}">
+                  </div>
+                  <div class="field-group">
+                    <label class="field-label">Gender</label>
+                    <select id="book-gender">
+                      <option ${curPat.gender === 'Female' ? 'selected' : ''}>Female</option>
+                      <option ${curPat.gender === 'Male' ? 'selected' : ''}>Male</option>
+                      <option>Other</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="field-row" style="margin-top: 10px; padding-top: 20px; border-top: 1px solid var(--slate-200);">
+                  <div class="field-group">
+                    <label class="field-label">Appointment Date</label>
+                    <input type="date" id="book-date" required min="${tomorrow}" value="${tomorrow}">
+                  </div>
+                  <div class="field-group">
+                    <label class="field-label">Consultation Mode</label>
+                    <select id="book-mode">
+                      <option>In-Person OPD Visit</option>
+                      <option>Tele-Consultation Video</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="field-group">
+                  <label class="field-label">Available OPD Time Slots</label>
+                  <div class="slot-matrix">
+                    ${slots.map(s => `
+                      <div class="slot-pill ${s === currentChosenSlot ? 'active' : ''}" onclick="currentChosenSlot = '${s}'; document.querySelectorAll('.slot-pill').forEach(b=>b.classList.remove('active')); this.classList.add('active'); document.getElementById('book-summary-slot').textContent = '${s}';">${s}</div>
+                    `).join('')}
+                  </div>
+                </div>
+
+                <div class="field-group">
+                  <label class="field-label">Chief Medical Complaint / Symptoms</label>
+                  <textarea id="book-reason" rows="3" placeholder="e.g. Chest tightness during exertion for 3 days, past ECG report available..."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-solid-dark" style="width: 100%; padding: 18px; font-size: 16px;">
+                  <svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Confirm Appointment & Generate Token Slip</span>
+                </button>
+              </form>
+            </div>
+
+            <!-- Summary Box -->
+            <div class="card-panel" style="display: flex; flex-direction: column; gap: 20px;">
+              <h3 style="font-size: 20px; font-weight: 900; border-bottom: 1px solid var(--slate-200); padding-bottom: 14px;">Consultation Summary</h3>
+
+              <div style="display: flex; gap: 14px; align-items: center;">
+                <div style="width: 50px; height: 50px; border-radius: 12px; background: #ffffff; border: 1.5px solid var(--slate-200); display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-sm);">
+                  ${getDeptIconSVG(doc.department)}
+                </div>
+                <div>
+                  <h4 style="font-size: 18px; font-weight: 900; color: var(--navy-950);">${doc.name}</h4>
+                  <p style="font-size: 13px; color: var(--slate-500);">${doc.qualification}</p>
+                  <p style="font-size: 13px; font-weight: 800; color: var(--blue-600); margin-top: 2px;">${doc.department}</p>
+                </div>
+              </div>
+
+              <div style="background: var(--slate-50); padding: 18px; border-radius: var(--radius-md); font-size: 14px; display: flex; flex-direction: column; gap: 10px; border: 1px solid var(--slate-200);">
+                <p><strong>OPD Room:</strong> ${doc.opdRoom}</p>
+                <p><strong>Selected Slot:</strong> <span id="book-summary-slot">${currentChosenSlot}</span></p>
+                <div style="margin-top: 10px; padding-top: 12px; border-top: 1px solid var(--slate-200); display: flex; justify-content: space-between; font-size: 18px; font-weight: 900; color: var(--navy-950);">
+                  <span>Consultation Fee:</span>
+                  <span>₹${doc.fee}</span>
+                </div>
+              </div>
+
+              <div style="font-size: 13px; color: var(--slate-500); line-height: 1.6;">
+                <p>• Token slip is generated immediately upon confirmation.</p>
+                <p>• OPD fee is payable at the reception desk upon check-in.</p>
+                <p>• Free cancellation up to 1 hour prior to appointment.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function handleBookAppointmentSubmit(e) {
+      e.preventDefault();
+      const doc = APP.selectedDoctor || APP.doctors[0];
+      const deptCode = doc.department.substring(0, 3).toUpperCase();
+      const token = `${deptCode}-${Math.floor(10 + Math.random() * 89)}`;
+      const id = `OPD-${Math.floor(1000 + Math.random() * 9000)}`;
+
+      const newApt = {
+        id,
+        doctorId: doc.id,
+        doctorName: doc.name,
+        department: doc.department,
+        date: document.getElementById('book-date').value,
+        timeSlot: currentChosenSlot,
+        type: document.getElementById('book-mode').value,
+        patientName: document.getElementById('book-name').value,
+        patientPhone: document.getElementById('book-phone').value,
+        patientAge: document.getElementById('book-age').value,
+        patientGender: document.getElementById('book-gender').value,
+        reason: document.getElementById('book-reason').value || 'Routine Outpatient Consultation',
+        status: 'Confirmed',
+        tokenNumber: token,
+        room: doc.opdRoom,
+        fee: doc.fee
+      };
+
+      APP.appointments.unshift(newApt);
+      persist();
+      navigate('appointments', { slip: newApt });
+    }
+
+    // 4. APPOINTMENTS VIEW
+    let currentAptTab = 'All';
+    function buildAppointmentsView() {
+      const filtered = APP.appointments.filter(a => currentAptTab === 'All' || a.status === currentAptTab);
+      const slip = APP.activeSlip;
+
+      return `
+        <div style="display: flex; flex-direction: column; gap: 28px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+            <div>
+              <h1 class="page-hero-title">Your Scheduled Appointments & OPD Tokens</h1>
+              <p class="page-hero-subtitle">Manage active clinical visits, view token receipts, and review past history.</p>
+            </div>
+            <button class="btn btn-solid-dark" onclick="openBooking()">+ Schedule New OPD Visit</button>
+          </div>
+
+          <!-- Printable Slip Modal / Card -->
+          ${slip ? `
+            <div class="token-receipt-card" id="printable-slip">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 1px solid rgba(255, 255, 255, 0.15); padding-bottom: 18px; margin-bottom: 24px;">
+                <div>
+                  <span class="badge badge-emerald">OPD Visit Confirmed</span>
+                  <div class="token-huge-number">Token: #${slip.tokenNumber}</div>
+                  <p style="font-size: 13px; color: #94a3b8; font-family: monospace;">Appointment ID: ${slip.id}</p>
+                </div>
+                <div style="display: flex; gap: 10px;">
+                  <button class="btn btn-subtle btn-sm" onclick="window.print()">
+                    <svg class="icon" viewBox="0 0 24 24"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect width="12" height="8" x="6" y="14"/></svg>
+                    <span>Print Token Slip</span>
+                  </button>
+                  <button class="btn btn-subtle btn-sm" onclick="APP.activeSlip = null; renderApp();">✕ Close</button>
+                </div>
+              </div>
+
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; font-size: 14px;">
+                <div>
+                  <p style="color: #94a3b8; font-size: 12px; font-weight: 700;">Doctor & Department</p>
+                  <p style="font-weight: 900; font-size: 17px; margin-top: 2px;">${slip.doctorName}</p>
+                  <p style="color: #38bdf8;">${slip.department}</p>
+                </div>
+                <div>
+                  <p style="color: #94a3b8; font-size: 12px; font-weight: 700;">Scheduled Date & Slot</p>
+                  <p style="font-weight: 900; font-size: 17px; margin-top: 2px;">${slip.date}</p>
+                  <p style="color: #cbd5e1;">${slip.timeSlot}</p>
+                </div>
+                <div>
+                  <p style="color: #94a3b8; font-size: 12px; font-weight: 700;">Room Location</p>
+                  <p style="font-weight: 900; font-size: 17px; margin-top: 2px;">${slip.room}</p>
+                  <p style="color: #cbd5e1;">${slip.type}</p>
+                </div>
+                <div>
+                  <p style="color: #94a3b8; font-size: 12px; font-weight: 700;">Consultation Fee</p>
+                  <p style="font-weight: 900; font-size: 17px; margin-top: 2px;">₹${slip.fee}</p>
+                  <p style="color: #94a3b8; font-size: 12px;">Payable at OPD reception desk</p>
+                </div>
+              </div>
+            </div>
+          ` : ''}
+
+          <!-- Filter Tabs -->
+          <div style="display: flex; gap: 10px;">
+            ${['All', 'Confirmed', 'Completed', 'Cancelled'].map(tab => `
+              <button class="btn btn-subtle btn-sm ${currentAptTab === tab ? 'btn-solid-dark' : ''}" onclick="currentAptTab = '${tab}'; renderApp();">${tab}</button>
+            `).join('')}
+          </div>
+
+          <div class="card-panel" style="padding: 0; overflow: hidden;">
+            ${filtered.length === 0 ? `
+              <div style="padding: 60px; text-align: center; color: var(--slate-500);">No appointments found for the selected status.</div>
+            ` : `
+              <div style="display: flex; flex-direction: column;">
+                ${filtered.map(apt => `
+                  <div style="padding: 28px 36px; border-bottom: 1px solid var(--slate-200); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+                    <div>
+                      <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                        <h3 style="font-size: 20px; font-weight: 900; color: var(--navy-950);">${apt.doctorName}</h3>
+                        <span class="badge badge-slate">${apt.department}</span>
+                        <span class="badge badge-blue" style="font-family: monospace;">Token #${apt.tokenNumber}</span>
+                      </div>
+                      <p style="font-size: 15px; font-weight: 700; color: var(--slate-700); margin-top: 6px;">
+                        Date: <strong>${apt.date}</strong> at <strong>${apt.timeSlot}</strong> • Location: <strong>${apt.room}</strong> • Mode: ${apt.type}
+                      </p>
+                      <p style="font-size: 13px; color: var(--slate-500); margin-top: 3px;">
+                        Patient: ${apt.patientName} (${apt.patientPhone}) • Complaint: ${apt.reason}
+                      </p>
+                    </div>
+
+                    <div style="display: flex; align-items: center; gap: 14px;">
+                      <span class="badge ${apt.status === 'Confirmed' ? 'badge-emerald' : (apt.status === 'Completed' ? 'badge-slate' : 'badge-rose')}">${apt.status}</span>
+                      <button class="btn btn-subtle btn-sm" onclick="APP.activeSlip = APP.appointments.find(a=>a.id==='${apt.id}'); renderApp();">View Token Slip</button>
+                      ${apt.status === 'Confirmed' ? `
+                        <button class="btn btn-subtle btn-sm" style="color: var(--rose-600);" onclick="if(confirm('Cancel this appointment?')){ apt.status='Cancelled'; persist(); renderApp(); }">Cancel</button>
+                      ` : ''}
+                    </div>
+                  </div>
+                `).join('')}
+              </div>
+            `}
+          </div>
+        </div>
+      `;
+    }
+
+    // 5. DEPARTMENTS VIEW
+    function buildDepartmentsView() {
+      return `
+        <div style="display: flex; flex-direction: column; gap: 28px;">
+          <div>
+            <h1 class="page-hero-title">Hospital Specialty Units & Clinical Departments</h1>
+            <p class="page-hero-subtitle">Specialized outpatient consultation suites, diagnostic wings, and inpatient units.</p>
+          </div>
+
+          <div class="grid-4-col">
+            ${APP.departments.map(dept => `
+              <div class="card-panel" style="display: flex; flex-direction: column; justify-content: space-between; gap: 20px;">
+                <div>
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                    <div style="width: 44px; height: 44px; border-radius: 10px; background: #ffffff; border: 1.5px solid var(--slate-200); display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-sm);">
+                      ${getDeptIconSVG(dept.name)}
+                    </div>
+                    <span style="font-size: 12px; font-weight: 800; color: var(--slate-500);">${dept.beds} Beds</span>
+                  </div>
+                  <h3 style="font-size: 20px; font-weight: 900; color: var(--navy-950);">${dept.name}</h3>
+                  <p style="font-size: 14px; color: var(--slate-500); margin-top: 8px; line-height: 1.6;">${dept.desc}</p>
+                </div>
+
+                <div style="padding-top: 16px; border-top: 1px solid var(--slate-200); font-size: 13px; color: var(--slate-600);">
+                  <p><strong>Department Head:</strong> ${dept.head}</p>
+                  <p><strong>Floor:</strong> ${dept.floor}</p>
+                  <button class="btn btn-subtle btn-sm" style="width: 100%; margin-top: 14px;" onclick="filterByDept('${dept.name}')">View Doctors (${dept.name}) →</button>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    // 6. LAB DIAGNOSTICS VIEW
+    let chosenLabTest = null;
+    function buildLabsView() {
+      return `
+        <div style="display: flex; flex-direction: column; gap: 28px;">
+          <div>
+            <h1 class="page-hero-title">Diagnostic Laboratory & Pathology Services</h1>
+            <p class="page-hero-subtitle">NABL accredited lab testing with home phlebotomy sample collection and digital report dispatch.</p>
+          </div>
+
+          <!-- Lab Order Drawer -->
+          ${chosenLabTest ? `
+            <div class="card-panel" style="border: 2px solid var(--blue-600); background: #f0f9ff;">
+              <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #bae6fd; padding-bottom: 16px; margin-bottom: 24px;">
+                <div>
+                  <h3 style="font-size: 20px; font-weight: 900; color: var(--navy-950);">Book Investigation: ${chosenLabTest.name}</h3>
+                  <p style="font-size: 14px; color: #0369a1; margin-top: 2px;">Sample: ${chosenLabTest.sample} • Price: ₹${chosenLabTest.price}</p>
+                </div>
+                <button class="btn btn-subtle btn-sm" onclick="chosenLabTest = null; renderApp();">✕ Cancel</button>
+              </div>
+
+              <form onsubmit="handleLabBooking(event)">
+                <div class="field-row">
+                  <div class="field-group">
+                    <label class="field-label">Collection Mode</label>
+                    <select id="lab-col-mode">
+                      <option>Home Sample Collection</option>
+                      <option>Hospital Walk-in Lab</option>
+                    </select>
+                  </div>
+                  <div class="field-group">
+                    <label class="field-label">Collection Date</label>
+                    <input type="date" id="lab-order-date" required value="${new Date(Date.now() + 86400000).toISOString().split('T')[0]}">
+                  </div>
+                </div>
+
+                <div class="field-group">
+                  <label class="field-label">Pickup Address for Phlebotomist</label>
+                  <input type="text" id="lab-order-address" required value="Flat 402, Sai Residency, Banjara Hills, Hyderabad">
+                </div>
+
+                <button type="submit" class="btn btn-solid-dark" style="width: 100%; padding: 16px; font-size: 16px;">Confirm & Dispatch Phlebotomist (₹${chosenLabTest.price})</button>
+              </form>
+            </div>
+          ` : ''}
+
+          <div class="card-panel" style="padding: 0; overflow: hidden;">
+            ${APP.labs.map(test => `
+              <div style="padding: 28px 36px; border-bottom: 1px solid var(--slate-200); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px;">
+                <div style="max-width: 880px;">
+                  <div style="display: flex; align-items: center; gap: 12px;">
+                    <h3 style="font-size: 19px; font-weight: 900; color: var(--navy-950);">${test.name}</h3>
+                    <span class="badge badge-slate">${test.turnaround}</span>
+                  </div>
+                  <p style="font-size: 14px; color: var(--slate-500); margin-top: 6px;">${test.desc}</p>
+                  <p style="font-size: 14px; font-weight: 700; color: var(--slate-700); margin-top: 8px;">
+                    <strong>Sample:</strong> ${test.sample} • <strong>Preparation:</strong> ${test.fasting}
+                  </p>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 24px;">
+                  <span style="font-size: 26px; font-weight: 900; color: var(--navy-950);">₹${test.price}</span>
+                  <button class="btn btn-solid-dark btn-sm" onclick="chosenLabTest = APP.labs.find(l=>l.id==='${test.id}'); renderApp();">Book Test</button>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    function handleLabBooking(e) {
+      e.preventDefault();
+      const test = chosenLabTest;
+      const order = {
+        id: `LAB-REQ-${Math.floor(1000 + Math.random() * 9000)}`,
+        testName: test.name,
+        sampleType: document.getElementById('lab-col-mode').value,
+        date: document.getElementById('lab-order-date').value,
+        slot: '07:30 AM - 08:30 AM',
+        status: 'Phlebotomist Assigned',
+        amount: test.price
+      };
+      APP.labOrders.unshift(order);
+      chosenLabTest = null;
+      persist();
+      alert(`Diagnostic test ${test.name} booked successfully. Order ID: ${order.id}`);
+      renderApp();
+    }
+
+    // 7. PHARMACY VIEW (WITH REALISTIC TABLET & CAPSULE VECTOR SYMBOLS)
+    function buildPharmacyView() {
+      const cartTotal = APP.cart.reduce((s, i) => s + (i.price * i.qty), 0);
+
+      return `
+        <div style="display: flex; flex-direction: column; gap: 28px;">
+          <div>
+            <h1 class="page-hero-title">Hospital Pharmacy & Prescription Dispensary</h1>
+            <p class="page-hero-subtitle">Licensed pharmaceutical inventory with batch verification, genuine tablet blister packaging, and express hospital dispensary collection.</p>
+          </div>
+
+          <div class="grid-form-split">
+            <div class="card-panel" style="padding: 0; overflow: hidden;">
+              ${APP.medicines.map(med => `
+                <div style="padding: 24px 32px; border-bottom: 1px solid var(--slate-200); display: flex; justify-content: space-between; align-items: center; gap: 20px; transition: background 0.15s;">
+                  <div style="display: flex; align-items: center; gap: 18px;">
+                    <!-- Real-Time Tablet / Capsule SVG Icon Box -->
+                    ${getMedicineTabletIconSVG(med.category, med.form)}
+
+                    <div>
+                      <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                        <h3 style="font-size: 19px; font-weight: 900; color: var(--navy-950);">${med.name}</h3>
+                        <span class="badge badge-blue" style="font-size: 11px;">💊 ${med.form}</span>
+                        ${med.rx ? `<span class="badge badge-rose" style="font-size: 10px;">Doctor Rx Required</span>` : '<span class="badge badge-emerald" style="font-size: 10px;">Over-The-Counter (OTC)</span>'}
+                      </div>
+                      <p style="font-size: 13px; color: var(--slate-500); margin-top: 4px;">
+                        <strong style="color: var(--slate-700);">Formulation:</strong> ${med.generic} • <strong style="color: var(--slate-700);">Brand:</strong> ${med.manufacturer}
+                      </p>
+                      <p style="font-size: 14px; font-weight: 700; color: var(--slate-700); margin-top: 6px;">
+                        Package: ${med.form} • <strong style="font-size: 20px; color: var(--navy-950); margin-left: 6px;">₹${med.price}</strong>
+                      </p>
+                    </div>
+                  </div>
+
+                  <button class="btn btn-subtle btn-sm" onclick="addToDispensaryCart('${med.id}')" style="font-weight: 800; border-color: var(--slate-300); white-space: nowrap;">
+                    + Add to Cart
+                  </button>
+                </div>
+              `).join('')}
+            </div>
+
+            <!-- Cart Drawer -->
+            <div class="card-panel" style="display: flex; flex-direction: column; gap: 20px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--slate-200); padding-bottom: 14px;">
+                <h3 style="font-size: 20px; font-weight: 900;">Dispensary Cart (${APP.cart.reduce((s, i) => s + i.qty, 0)} Items)</h3>
+                ${APP.cart.length > 0 ? `<button class="btn btn-subtle btn-sm" style="color: var(--rose-600);" onclick="APP.cart = []; persist(); renderApp();">Clear All</button>` : ''}
+              </div>
+
+              ${APP.cart.length === 0 ? `
+                <div style="text-align: center; padding: 40px 0; color: var(--slate-400);">
+                  <div style="font-size: 32px; margin-bottom: 8px;">💊</div>
+                  <p style="font-size: 14px;">No medications added yet.</p>
+                  <p style="font-size: 12px; margin-top: 4px;">Click "+ Add to Cart" on any tablet to add.</p>
+                </div>
+              ` : `
+                <form onsubmit="handleDispensaryOrder(event)">
+                  <div style="display: flex; flex-direction: column; gap: 14px; max-height: 280px; overflow-y: auto; padding-right: 6px;">
+                    ${APP.cart.map(item => `
+                      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--slate-100); padding-bottom: 12px;">
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                          <span style="font-size: 18px;">💊</span>
+                          <div>
+                            <p style="font-weight: 800; font-size: 14px; color: var(--navy-950);">${item.name}</p>
+                            <p style="font-size: 12px; color: var(--slate-500);">${item.form} • ₹${item.price} each</p>
+                          </div>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                          <button type="button" class="btn btn-subtle btn-sm" style="padding: 3px 9px;" onclick="updateCart('${item.id}', -1)">-</button>
+                          <span style="font-weight: 900; width: 24px; text-align: center;">${item.qty}</span>
+                          <button type="button" class="btn btn-subtle btn-sm" style="padding: 3px 9px;" onclick="updateCart('${item.id}', 1)">+</button>
+                          <span style="font-weight: 900; width: 64px; text-align: right; color: var(--navy-950);">₹${item.price * item.qty}</span>
+                        </div>
+                      </div>
+                    `).join('')}
+                  </div>
+
+                  <div class="field-group" style="margin-top: 20px;">
+                    <label class="field-label">Delivery / Pickup Address</label>
+                    <input type="text" id="disp-address" required value="Flat 402, Banjara Hills, Hyderabad">
+                  </div>
+
+                  <div style="border-top: 1.5px solid var(--slate-200); padding-top: 16px; display: flex; justify-content: space-between; font-size: 20px; font-weight: 900; color: var(--navy-950);">
+                    <span>Total Bill:</span>
+                    <span>₹${cartTotal}</span>
+                  </div>
+
+                  <button type="submit" class="btn btn-solid-dark" style="width: 100%; margin-top: 16px; padding: 16px; font-size: 15px;">
+                    Confirm Prescription Order (₹${cartTotal})
+                  </button>
+                </form>
+              `}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function addToDispensaryCart(id) {
+      const med = APP.medicines.find(m => m.id === id);
+      if (!med) return;
+      const ex = APP.cart.find(i => i.id === id);
+      if (ex) ex.qty += 1;
+      else APP.cart.push({ ...med, qty: 1 });
+      persist();
+      renderApp();
+    }
+
+    function updateCart(id, delta) {
+      const ex = APP.cart.find(i => i.id === id);
+      if (!ex) return;
+      ex.qty += delta;
+      if (ex.qty <= 0) APP.cart = APP.cart.filter(i => i.id !== id);
+      persist();
+      renderApp();
+    }
+
+    function handleDispensaryOrder(e) {
+      e.preventDefault();
+      const total = APP.cart.reduce((s, i) => s + (i.price * i.qty), 0);
+      alert(`Prescription order placed successfully. Total: ₹${total}. Delivery in 2 hours.`);
+      APP.cart = [];
+      persist();
+      renderApp();
+    }
+
+    // 8. TRIAGE VIEW
+    function buildTriageView() {
+      const list = [
+        { symptom: 'High Fever (>101°F) with Chills & Body Pain', dept: 'General Medicine', urgency: 'Priority OPD Visit', red: 'Persistent vomiting, extreme lethargy, or temperature above 103°F.', advice: 'Maintain hydration with ORS/water. Schedule a general physician consultation and CBC test.' },
+        { symptom: 'Chest Pressure, Left Arm Discomfort or Palpitations', dept: 'Cardiology', urgency: 'Immediate Emergency Evaluation', red: 'Cold sweating, radiation to jaw, dizziness, sudden shortness of breath.', advice: 'Do not delay. Proceed immediately to the 24/7 Casualty Ward or dial 108.' },
+        { symptom: 'Persistent Productive Cough (> 2 Weeks) or Wheezing', dept: 'Pulmonology', urgency: 'Routine OPD Specialist Visit', red: 'Hemoptysis (blood in sputum), significant unexplained weight loss.', advice: 'Avoid irritants and cold exposures. Pulmonary examination and chest radiograph recommended.' },
+        { symptom: 'Severe Throbbing Headache, Aura or Visual Flashes', dept: 'Neurology', urgency: 'Routine OPD Specialist Visit', red: 'Sudden "thunderclap" headache, neck stiffness, speech slurring.', advice: 'Track trigger factors. Neurologist review for migraine prophylaxis.' },
+        { symptom: 'Joint Swelling, Morning Stiffness or Knee Crepitus', dept: 'Orthopedics', urgency: 'Routine OPD Specialist Visit', red: 'Inability to bear weight after fall, joint erythema and local heat.', advice: 'Avoid deep squats. Orthopedic review with weight-bearing X-rays.' }
+      ];
+
+      return `
+        <div style="display: flex; flex-direction: column; gap: 28px;">
+          <div>
+            <h1 class="page-hero-title">Clinical Symptom Triage Directory</h1>
+            <p class="page-hero-subtitle">Structured medical routing to ensure patients consult the correct specialty unit promptly.</p>
+          </div>
+
+          <div class="card-panel" style="padding: 0; overflow: hidden;">
+            ${list.map(item => `
+              <div style="padding: 28px 36px; border-bottom: 1px solid var(--slate-200); display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 24px;">
+                <div style="max-width: 880px;">
+                  <div style="display: flex; align-items: center; gap: 12px;">
+                    <h3 style="font-size: 20px; font-weight: 900; color: var(--navy-950);">${item.symptom}</h3>
+                    <span class="badge ${item.urgency.includes('Immediate') ? 'badge-rose' : (item.urgency.includes('Priority') ? 'badge-amber' : 'badge-slate')}">${item.urgency}</span>
+                  </div>
+                  <p style="font-size: 15px; color: var(--slate-700); margin-top: 8px;"><strong>Clinical Action:</strong> ${item.advice}</p>
+                  <p style="font-size: 14px; color: var(--rose-600); margin-top: 4px;"><strong>Red Flag Signs:</strong> ${item.red}</p>
+                </div>
+
+                <div>
+                  ${item.urgency.includes('Immediate') ? `
+                    <button class="btn btn-solid-rose btn-sm" onclick="navigate('emergency')">Emergency (108) →</button>
+                  ` : `
+                    <button class="btn btn-solid-dark btn-sm" onclick="filterByDept('${item.dept}')">Consult ${item.dept} →</button>
+                  `}
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    // 9. RECORDS VIEW (PERSONALIZED PATIENT EHR)
+    function buildRecordsView() {
+      const u = (APP.currentSession && APP.currentSession.user) ? APP.currentSession.user : APP.registeredPatients[0];
+
+      return `
+        <div style="display: flex; flex-direction: column; gap: 28px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+            <div>
+              <h1 class="page-hero-title">Patient Electronic Health Record (EHR) & Vitals</h1>
+              <p class="page-hero-subtitle">Personal demographics, recorded vitals history, and past clinical consultations.</p>
+            </div>
+            <button class="btn btn-subtle btn-sm" onclick="authViewRole='patient'; authViewMode='login'; navigate('login');">Switch Patient Profile</button>
+          </div>
+
+          <div class="card-panel">
+            <h3 style="font-size: 20px; font-weight: 900; margin-bottom: 20px; border-bottom: 1px solid var(--slate-200); padding-bottom: 12px;">Patient Demographic File (#${u.id})</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; font-size: 14px;">
+              <div>
+                <p style="color: var(--slate-500); font-size: 12px; font-weight: 700;">Full Legal Name</p>
+                <p style="font-weight: 900; font-size: 17px; margin-top: 2px;">${u.name}</p>
+              </div>
+              <div>
+                <p style="color: var(--slate-500); font-size: 12px; font-weight: 700;">Age & Gender</p>
+                <p style="font-weight: 900; font-size: 17px; margin-top: 2px;">${u.age} Yrs / ${u.gender}</p>
+              </div>
+              <div>
+                <p style="color: var(--slate-500); font-size: 12px; font-weight: 700;">Blood Group</p>
+                <p style="font-weight: 900; font-size: 17px; margin-top: 2px;">${u.bloodGroup}</p>
+              </div>
+              <div>
+                <p style="color: var(--slate-500); font-size: 12px; font-weight: 700;">Phone / Email</p>
+                <p style="font-weight: 900; font-size: 16px; margin-top: 2px;">${u.phone}</p>
+                <p style="font-size: 12px; color: var(--slate-400);">${u.email || ''}</p>
+              </div>
+              <div style="grid-column: span 2;">
+                <p style="color: var(--slate-500); font-size: 12px; font-weight: 700;">Known Drug Allergies</p>
+                <p style="font-weight: 800; font-size: 15px; color: var(--rose-600); margin-top: 2px;">${u.allergies}</p>
+              </div>
+              <div style="grid-column: span 2;">
+                <p style="color: var(--slate-500); font-size: 12px; font-weight: 700;">Emergency Contact</p>
+                <p style="font-weight: 800; font-size: 15px; margin-top: 2px;">${u.emergencyContact}</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-panel">
+            <h3 style="font-size: 20px; font-weight: 900; margin-bottom: 20px;">Vitals Parameters Log (BP, Pulse, Sugar)</h3>
+
+            <form onsubmit="handleLogVital(event)" style="background: var(--slate-50); padding: 24px; border-radius: var(--radius-md); display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)) 140px; gap: 16px; align-items: end; margin-bottom: 28px; border: 1px solid var(--slate-200);">
+              <div>
+                <label class="field-label">BP Systolic</label>
+                <input type="number" id="v-sys" required value="120">
+              </div>
+              <div>
+                <label class="field-label">BP Diastolic</label>
+                <input type="number" id="v-dia" required value="80">
+              </div>
+              <div>
+                <label class="field-label">Pulse (bpm)</label>
+                <input type="number" id="v-pulse" required value="72">
+              </div>
+              <div>
+                <label class="field-label">Fasting Sugar</label>
+                <input type="number" id="v-sugar" required value="95">
+              </div>
+              <div>
+                <label class="field-label">Weight (kg)</label>
+                <input type="number" id="v-weight" step="0.1" required value="63.0">
+              </div>
+              <button type="submit" class="btn btn-solid-dark" style="height: 50px;">+ Add Log</button>
+            </form>
+
+            <table class="custom-table">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Blood Pressure</th>
+                  <th>Pulse</th>
+                  <th>Fasting Sugar</th>
+                  <th>Weight</th>
+                  <th>Clinical Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${APP.vitals.map(v => `
+                  <tr>
+                    <td style="font-weight: 800;">${v.date}</td>
+                    <td style="font-weight: 900;">${v.systolic} / ${v.diastolic} mmHg</td>
+                    <td>${v.pulse} bpm</td>
+                    <td>${v.sugar} mg/dL</td>
+                    <td>${v.weight} kg</td>
+                    <td><span class="badge ${v.systolic <= 120 ? 'badge-emerald' : 'badge-amber'}">${v.systolic <= 120 ? 'Optimal' : 'Elevated'}</span></td>
+                  </tr>
+                `).join('')}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      `;
+    }
+
+    function handleLogVital(e) {
+      e.preventDefault();
+      APP.vitals.unshift({
+        date: new Date().toISOString().split('T')[0],
+        systolic: Number(document.getElementById('v-sys').value),
+        diastolic: Number(document.getElementById('v-dia').value),
+        pulse: Number(document.getElementById('v-pulse').value),
+        sugar: Number(document.getElementById('v-sugar').value),
+        weight: Number(document.getElementById('v-weight').value)
+      });
+      persist();
+      renderApp();
+    }
+
+    // 10. DOCTOR DESK / CLINICAL STATION VIEW
+    function buildDoctorStationView() {
+      const curDoc = (APP.currentSession && APP.currentSession.role === 'doctor' && APP.currentSession.doctor) ? APP.currentSession.doctor : APP.doctors[0];
+      const queue = APP.appointments.filter(a => a.doctorId === curDoc.id);
+
+      return `
+        <div style="display: flex; flex-direction: column; gap: 28px;">
+          <div class="token-receipt-card" style="margin-bottom: 0;">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+              <div>
+                <span class="badge badge-blue">Clinical Administration & Specialist Roster</span>
+                <h1 style="font-size: 28px; font-weight: 900; margin-top: 8px;">OPD Consultation Desk & Live Patient Queue</h1>
+                <p style="color: #94a3b8; font-size: 14px; margin-top: 4px;">Logged in: <strong>${curDoc.name}</strong> • ${curDoc.department} • Room: ${curDoc.opdRoom} • Reg: ${curDoc.regNo || 'MCI-Verified'}</p>
+              </div>
+              <div style="display: flex; gap: 12px; align-items: center;">
+                <button class="btn btn-subtle btn-sm" onclick="authViewRole='doctor'; authViewMode='login'; navigate('login');">Switch Doctor Account</button>
+                <button class="btn btn-subtle btn-sm" onclick="authViewRole='doctor'; authViewMode='register'; navigate('login');">+ Register New Specialist</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid-form-split">
+            <div class="card-panel">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+                <h2 style="font-size: 22px; font-weight: 900;">Active Outpatient Queue for ${curDoc.name} (${queue.length})</h2>
+                <span class="badge badge-emerald">Live Queue Synchronized</span>
+              </div>
+
+              ${queue.length === 0 ? `
+                <div style="padding: 60px 0; text-align: center; color: var(--slate-400);">
+                  <p style="font-size: 16px;">No patients currently scheduled in queue for ${curDoc.name}.</p>
+                  <button class="btn btn-solid-dark btn-sm" style="margin-top: 14px;" onclick="openBooking('${curDoc.id}')">+ Add Walk-in OPD Patient</button>
+                </div>
+              ` : `
+                <div style="display: flex; flex-direction: column;">
+                  ${queue.map(apt => `
+                    <div style="padding: 20px 0; border-bottom: 1px solid var(--slate-100); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+                      <div>
+                        <div style="display: align-items: center; gap: 12px;">
+                          <span class="badge badge-blue" style="font-family: monospace;">Token #${apt.tokenNumber}</span>
+                          <strong style="font-size: 17px;">${apt.patientName}</strong>
+                          <span style="font-size: 13px; color: var(--slate-400);">(${apt.patientAge || 28} Yrs, ${apt.patientGender || 'Patient'})</span>
+                        </div>
+                        <p style="font-size: 14px; color: var(--slate-600); margin-top: 4px;">Slot: ${apt.timeSlot} • Chief Complaint: ${apt.reason}</p>
+                      </div>
+
+                      <select style="max-width: 170px; font-weight: 800;" onchange="const a=APP.appointments.find(x=>x.id==='${apt.id}'); if(a){ a.status=this.value; persist(); }">
+                        <option value="Confirmed" ${apt.status === 'Confirmed' ? 'selected' : ''}>Waiting</option>
+                        <option value="In Consultation" ${apt.status === 'In Consultation' ? 'selected' : ''}>In Consultation</option>
+                        <option value="Completed" ${apt.status === 'Completed' ? 'selected' : ''}>Completed</option>
+                        <option value="Cancelled" ${apt.status === 'Cancelled' ? 'selected' : ''}>No Show</option>
+                      </select>
+                    </div>
+                  `).join('')}
+                </div>
+              `}
+            </div>
+
+            <div class="card-panel">
+              <h3 style="font-size: 20px; font-weight: 900; margin-bottom: 18px; border-bottom: 1px solid var(--slate-200); padding-bottom: 12px;">Digital Clinical Rx Prescription</h3>
+              <div class="field-group">
+                <label class="field-label">Patient Clinical Assessment & Rx Note</label>
+                <textarea id="doc-note-text" rows="8" placeholder="Enter clinical diagnosis, auscultation notes, blood pressure finding, and prescription schedule (e.g. Tab Augmentin 625mg 1-0-1 x 5 days, Tab Pan 40 1-0-0)..."></textarea>
+              </div>
+              <button class="btn btn-solid-blue" style="width: 100%; padding: 16px;" onclick="alert('Prescription digitally signed by ' + '${curDoc.name}' + ' and synchronized with Patient EHR.'); document.getElementById('doc-note-text').value = '';">Digitally Sign & Dispatch Prescription</button>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // 11. EMERGENCY VIEW
+    let ambulanceActive = false;
+    function buildEmergencyView() {
+      const curPat = (APP.currentSession && APP.currentSession.user) ? APP.currentSession.user : APP.registeredPatients[0];
+
+      return `
+        <div style="display: flex; flex-direction: column; gap: 28px; max-width: 1000px; margin: 0 auto;">
+          <div>
+            <h1 class="page-hero-title" style="color: var(--rose-600);">24/7 Emergency Casualty & Ambulance Dispatch</h1>
+            <p class="page-hero-subtitle">Priority trauma triage, acute resuscitation response, and mobile ICU ambulance units.</p>
+          </div>
+
+          <div class="card-panel" style="background: #fff1f2; border-color: #fecdd3;">
+            <h3 style="font-size: 18px; font-weight: 900; color: #881337; margin-bottom: 20px;">Immediate Emergency Hotlines</h3>
+            <div class="grid-2-col">
+              <a href="tel:108" class="card-panel" style="padding: 24px; display: flex; justify-content: space-between; align-items: center; text-decoration: none; color: #881337; border-color: #fda4af;">
+                <span style="font-weight: 900; font-size: 16px;">National Ambulance</span>
+                <span style="font-size: 28px; font-weight: 900;">108</span>
+              </a>
+              <a href="tel:102" class="card-panel" style="padding: 24px; display: flex; justify-content: space-between; align-items: center; text-decoration: none; color: #881337; border-color: #fda4af;">
+                <span style="font-weight: 900; font-size: 16px;">Maternity & Child Aid</span>
+                <span style="font-size: 28px; font-weight: 900;">102</span>
+              </a>
+            </div>
+            <p style="font-size: 14px; color: #9f1239; margin-top: 16px;">Casualty Resuscitation Wing direct line: <strong>040-2345-6789 (Ext 101)</strong></p>
+          </div>
+
+          ${ambulanceActive ? `
+            <div class="token-receipt-card">
+              <span class="badge badge-emerald">Ambulance Unit Dispatched</span>
+              <div class="token-huge-number" style="font-size: 32px;">ALS Unit 04 (Advanced Cardiac Life Support)</div>
+              <p style="font-size: 20px; font-weight: 900; color: #4ade80; margin: 8px 0;">Estimated Arrival Time: 8 to 11 Minutes</p>
+              <div style="font-size: 14px; color: #cbd5e1; line-height: 1.6; margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.15);">
+                <p><strong>Primary Paramedic:</strong> Nurse S. Paul</p>
+                <p><strong>Driver Contact:</strong> +91 9848011223 (K. Venkatesh)</p>
+                <p><strong>Dispatch Location:</strong> Banjara Hills, Hyderabad</p>
+              </div>
+            </div>
+          ` : `
+            <div class="card-panel">
+              <h3 style="font-size: 20px; font-weight: 900; margin-bottom: 24px; border-bottom: 1px solid var(--slate-200); padding-bottom: 14px;">Request Rapid Ambulance Response</h3>
+              <form onsubmit="event.preventDefault(); ambulanceActive = true; renderApp();">
+                <div class="field-group">
+                  <label class="field-label">Patient Full Legal Name</label>
+                  <input type="text" required value="${curPat.name}">
+                </div>
+                <div class="field-row">
+                  <div class="field-group">
+                    <label class="field-label">Caller Phone</label>
+                    <input type="tel" required value="${curPat.phone}">
+                  </div>
+                  <div class="field-group">
+                    <label class="field-label">Acute Medical Condition</label>
+                    <select>
+                      <option>Acute Chest Pain & Dyspnea</option>
+                      <option>Severe Trauma / Road Accident</option>
+                      <option>Unconscious / Stroke Symptoms</option>
+                      <option>Pediatric Respiratory Distress</option>
+                      <option>Acute Labor / Maternity Emergency</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="field-group">
+                  <label class="field-label">Exact Pickup Address & Landmark</label>
+                  <input type="text" required value="Flat 402, Banjara Hills, Hyderabad">
+                </div>
+                <button type="submit" class="btn btn-solid-rose" style="width: 100%; padding: 18px; font-size: 16px;">
+                  Dispatch Emergency Ambulance Unit Now
+                </button>
+              </form>
+            </div>
+          `}
+        </div>
+      `;
+    }
+
+    // Initialize
+    window.addEventListener('DOMContentLoaded', () => {
+      persist();
+      renderApp();
+    });
+  </script>
+</body>
+</html>
